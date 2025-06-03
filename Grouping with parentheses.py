@@ -13,3 +13,6 @@ import re
 # print(areaCode)
 # print(phoneNumber)
 
+phoneNumberRegex = re.compile(r'(\(\d\d\d\)) (\d\d\d-\d\d\d\d)')
+mo = phoneNumberRegex
+
