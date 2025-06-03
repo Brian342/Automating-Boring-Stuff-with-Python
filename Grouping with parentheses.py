@@ -7,6 +7,9 @@ mo = phoneNumberRegex.search('My number is 415-555-4242.')
 # print(mo.group(0))
 
 # retrieving all groups at once
+# print(mo.groups())
 
-
+areaCode, phoneNumber = mo.groups()
+print(areaCode)
+print(phoneNumber)
 
