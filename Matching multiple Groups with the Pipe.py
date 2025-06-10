@@ -9,4 +9,8 @@ heroRegex = re.compile(r'Batman | Tina Fey', re.IGNORECASE)
 heroRegex2 = re.compile('Tina Fey | Batman', re.IGNORECASE)
 mo2 = heroRegex2.search('Tina Fey and Batman')
 
-print(mo2.group())
+# print(mo2.group())
+
+batRegex = re.compile(r'Bat(man|mobile|copter|bat)')
+mo = batRegex.search('Batmobile lost a wheel')
+print(mo.group())
