@@ -9,5 +9,7 @@ noneGreedyRegex = re.compile(r'<.*?>')
 # mo = noneGreedyRegex.search('<To serve man> for dinner.>')
 # print(mo.group())
 
-
+greedyRegex = re.compile(r'<.*>')
+mo = greedyRegex.search('<To serve man> for dinner.>')
+print(mo.group())
 
