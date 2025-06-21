@@ -9,4 +9,4 @@ endsWithNumber = re.compile(r'\d$')
 print(endsWithNumber.search('Your number is 42'))
 print(endsWithNumber.search('Your number is forty two') is None)
 
-# The r'\d+$ expression string matches strings
+# The r'\d+$ expression string matches strings that both begin
