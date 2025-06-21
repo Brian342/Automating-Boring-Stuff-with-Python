@@ -12,3 +12,4 @@ endsWithNumber = re.compile(r'\d$')
 # The r'\d+$ expression string matches strings that both begin and end with one or more numerical characters
 wholeStringIsNum = re.compile(r'^\d+$')
 print(wholeStringIsNum.search('1234567890'))
+print(wholeStringIsNum.search('12345xyz6789') is None)
