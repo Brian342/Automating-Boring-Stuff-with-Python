@@ -14,3 +14,4 @@ wholeStringIsNum = re.compile(r'^\d+$')
 print(wholeStringIsNum.search('1234567890'))
 print(wholeStringIsNum.search('12345xyz6789') is None)
 print(wholeStringIsNum.search('12 3456789') is None)
+
