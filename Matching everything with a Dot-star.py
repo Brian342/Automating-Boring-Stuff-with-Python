@@ -5,3 +5,6 @@ nameRegex = re.compile(r'First Name: (.*) Last Name:(.*)')
 # print(mo.group(1))
 # print(mo.group(2))
 
+noneGreedyRegex = re.compile(r'<.*?>')
+mo = noneGreedyRegex.search('<To serve man> for dinner')
+print(mo.group())
