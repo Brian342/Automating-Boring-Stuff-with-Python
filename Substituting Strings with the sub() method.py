@@ -5,4 +5,4 @@ namesRegex = re.compile(r'Agent \w+')
 
 # Names censor
 agentNameRegex = re.compile(r'Agent (\w)\w*')
-pr
+pri
