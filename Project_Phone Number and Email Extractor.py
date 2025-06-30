@@ -10,3 +10,6 @@ phoneRegex = re.compile(r'''(
 \d{4} # last 4 digit
 (\s*(ext |x| ext.)\s*\d{2, 5})? # extension
 )''', re.VERBOSE)
+
+# step 2: create a regex for email addresses
+emailRegex = re.compile()
