@@ -12,4 +12,6 @@ phoneRegex = re.compile(r'''(
 )''', re.VERBOSE)
 
 # step 2: create a regex for email addresses
-emailRegex = re.compile()
+emailRegex = re.compile(r'''(
+
+)''')
