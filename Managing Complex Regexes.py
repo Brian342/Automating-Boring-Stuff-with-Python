@@ -8,5 +8,3 @@ phoneRegex = re.compile(r'''(
 \d{4} # last 4 digit
 (\s*(ext |x| ext.)\s*\d{2, 5})? # extension
 )''', re.VERBOSE)
-
-print(phoneRegex)
