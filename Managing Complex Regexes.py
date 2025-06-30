@@ -5,4 +5,6 @@ phoneRegex = re.compile(r'''(
 (\s|-|\.) ? # separator
 \d{3} # first 3 digits
 (\s|-|\.) # separator
+\d{4} # last 4 digit
+(\s*)
 )''')
