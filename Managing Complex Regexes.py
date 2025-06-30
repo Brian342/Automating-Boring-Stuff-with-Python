@@ -7,4 +7,4 @@ phoneRegex = re.compile(r'''(
 (\s|-|\.) # separator
 \d{4} # last 4 digit
 (\s*(ext |x| ext.)\s*\d{2, 5})? # extension
-)''')
+)''', re.VERBOSE)
