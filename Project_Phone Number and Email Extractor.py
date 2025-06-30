@@ -19,4 +19,7 @@ emailRegex = re.compile(r'''(
 (\.[a-zA-Z]{2, 4}) # dot-something
 )''', re.VERBOSE)
 
+# step3: find all matches in the clipboard text
+text = str(pyperclip.paste())
+matches = []
 
