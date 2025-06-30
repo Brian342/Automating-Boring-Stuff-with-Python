@@ -1,5 +1,5 @@
 import re
 
 phoneRegex = re.compile(r'''(
-(\d{})
+(\d{3}|\(\d{3}\))?  # area code
 )''')
