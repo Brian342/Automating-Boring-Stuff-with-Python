@@ -14,4 +14,6 @@ phoneRegex = re.compile(r'''(
 # step 2: create a regex for email addresses
 emailRegex = re.compile(r'''(
 [a-zA-Z0-9._%+-]+ # username
+@ # @ symbol
+
 )''')
