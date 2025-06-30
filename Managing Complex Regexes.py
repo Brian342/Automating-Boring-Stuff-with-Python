@@ -1,1 +1,1 @@
-phoneRege
+phoneRegex
