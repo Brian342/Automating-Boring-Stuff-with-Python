@@ -22,4 +22,9 @@ emailRegex = re.compile(r'''(
 # step3: find all matches in the clipboard text
 text = str(pyperclip.paste())
 matches = []
+for groups in phoneRegex.findall(text):
+    phoneNum = '-'.join([groups[1], groups[3], groups[5]])
+    if groups[8] != '':
+        phoneNum += ' x' + groups[8]
+
 
