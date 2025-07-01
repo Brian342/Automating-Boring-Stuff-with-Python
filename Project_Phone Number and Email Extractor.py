@@ -30,8 +30,4 @@ for groups in phoneRegex.findall(text):
 for groups in emailRegex.findall(text):
     matches.append(groups[0])
 
-
-
 # step4: joins the matches into a string for the clipboard
-
-
