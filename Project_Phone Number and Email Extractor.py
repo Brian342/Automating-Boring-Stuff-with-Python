@@ -34,4 +34,4 @@ for groups in emailRegex.findall(text):
 # copy result to the clipboard
 if len(matches) > 0:
     pyperclip.copy('\n'.join(matches))
-    print()
+    print('Copied to clipboard')
