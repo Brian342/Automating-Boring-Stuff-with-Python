@@ -36,4 +36,5 @@ if len(matches) > 0:
     pyperclip.copy('\n'.join(matches))
     print('Copied to clipboard:')
     print('\n'.join(matches))
-
+else:
+    print('')
