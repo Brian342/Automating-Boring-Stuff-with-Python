@@ -32,4 +32,5 @@ for groups in emailRegex.findall(text):
 
 # step4: joins the matches into a string for the clipboard
 # copy result to the clipboard
-if
+if len(matches) > 0:
+    pass
