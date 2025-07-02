@@ -1,2 +1,2 @@
 import os
-os.path.join('usr', )
+os.path.join('usr', 'bin', 'spam')
