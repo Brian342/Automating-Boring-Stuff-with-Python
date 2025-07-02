@@ -1,3 +1,3 @@
 import os
 
-os.getcwd()  # returns the current working directory as string
+print(os.getcwd())  # returns the current working directory as string
