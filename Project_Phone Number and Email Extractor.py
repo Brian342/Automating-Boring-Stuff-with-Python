@@ -5,10 +5,10 @@ import pyperclip, re
 phoneRegex = re.compile(r'''(
 (\d{3}|\(\d{3}\))? # area code
 (\s|-|\.) ? # separator
-\d{3} # first 3 digits
+(\d{3}) # first 3 digits
 (\s|-|\.) # separator
-\d{4} # last 4 digit
-(\s*(ext |x| ext.)\s*\d{2, 5})? # extension
+(\d{4}) # last 4 digit
+(\s*(ext |x| ext.)\s*(\d{2, 5}))? # extension
 )''', re.VERBOSE)
 
 # step 2: create a regex for email addresses
@@ -23,9 +23,11 @@ emailRegex = re.compile(r'''(
 text = str(pyperclip.paste())
 matches = []
 for groups in phoneRegex.findall(text):
+    phoneNum = ''
+    if groups[1]: # area code
     phoneNum = '-'.join([groups[1], groups[3], groups[5]])
-    if groups[7] != '':
-        phoneNum += ' x' + groups[7]
+    if groups[8] != '':
+        phoneNum += ' x' + groups[8]
     matches.append(phoneNum)
 for groups in emailRegex.findall(text):
     matches.append(groups[0])
