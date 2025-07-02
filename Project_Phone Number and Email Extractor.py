@@ -27,7 +27,7 @@ for groups in phoneRegex.findall(text):
     if groups[1]: # area code
         phoneNum += groups[1] + '-'
     phoneNum += groups[3] + '-' + groups[5]
-    if groups[8] != '':
+    if groups[8]:
         phoneNum += ' x' + groups[8]
     matches.append(phoneNum)
 for groups in emailRegex.findall(text):
