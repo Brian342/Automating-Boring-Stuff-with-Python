@@ -1,6 +1,4 @@
 import os
-# print(os.path.join('usr', 'bin', 'spam'))
+print(os.path.join('usr', 'bin', 'spam'))
 
-myFiles = ['accounts.txt', 'details.csv', 'invite.docx']
-for filename in myFiles:
-    print(os.path.join('/user/brian', filename))
+
