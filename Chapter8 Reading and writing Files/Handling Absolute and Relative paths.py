@@ -17,3 +17,4 @@ import os.path
 
 calcFilePath = '/Users/briankimanzi/Documents/programming Languages/PythonProgramming/Automating-Boring-Stuff-with-Python/Chapter8 Reading and writing Files'
 print(os.path.split(calcFilePath))
+
