@@ -8,3 +8,6 @@ import os.path
 # print(os.path.relpath('/Users', '/PythonProgramming/Automating-Boring-Stuff-with-Python'))  # returns a string of a relative path from start path to path
 
 # print(os.getcwd())
+
+path = '/Users/briankimanzi/Documents/programming Languages/PythonProgramming/Automating-Boring-Stuff-with-Python/Chapter8 Reading and writing Files'
+print(os.path.basename(path))  # returns a string of everything that comes after the last slash in the path argument
