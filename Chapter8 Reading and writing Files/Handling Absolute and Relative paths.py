@@ -11,3 +11,5 @@ import os.path
 
 path = '/Users/briankimanzi/Documents/programming Languages/PythonProgramming/Automating-Boring-Stuff-with-Python/Chapter8 Reading and writing Files'
 print(os.path.basename(path))  # returns a string of everything that comes after the last slash in the path argument
+
+print(os.path.dirname(path))  # returns a string of everything that comes before the last slash in the path argument
