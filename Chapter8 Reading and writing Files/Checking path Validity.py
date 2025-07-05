@@ -10,3 +10,5 @@ path2 = '/Users/briankimanzi/Documents/programming Languages/PythonProgramming/A
 # print(os.path.isdir(path))  # return True if the path argument exists and is a folder and will return False otherwise
 
 print(os.path.exists('Rickest'))  # checks if a flash drive is attached in your computer
+
+
