@@ -5,3 +5,4 @@ import os.path
 
 # print(os.path.isabs('/user'))  # returns true if the argument is an absolute path and False if it's a relative path
 
+print()
