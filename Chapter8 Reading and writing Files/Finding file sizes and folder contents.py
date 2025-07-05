@@ -9,4 +9,4 @@ print(os.listdir(path))  # returns a list of filename strings for each file in t
 # Getting all the total size of all the files in this directory
 totalsize = 0
 for filename in os.listdir('/Users/briankimanzi'):
-    totalsize = totalsize + os.path.getsize(os.join)
+    totalsize = totalsize + os.path.getsize(os.path.join())
