@@ -1,7 +1,9 @@
 import os
 
 path = '/Users/briankimanzi/Documents/programming Languages/PythonProgramming/Automating-Boring-Stuff-with-Python/Chapter8 Reading and writing Files'
+path2 = '/Users/briankimanzi/Documents/programming Languages/PythonProgramming/Automating-Boring-Stuff-with-Python/Chapter8 Reading and writing Files/Checking path Validity.py'
 # print(os.path.exists(path))
-# the above code will return True if the file or folder referred to in the argument exists and False if it doesn't
+# The above code will return True if the file or folder referred to in the argument exists and False if it doesn't
 
-print(os.path.isfile(path))
+# print(os.path.isfile(path2))  # returns true if the path argument exists and is a file and will return False otherwise
+
