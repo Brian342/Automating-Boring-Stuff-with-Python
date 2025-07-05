@@ -4,7 +4,7 @@ path = '/Users/briankimanzi/Documents/programming Languages/PythonProgramming/Au
 
 # print(os.path.getsize(path))  # returns the file in bytes of the file in the path argument
 
-print(os.listdir(path))  # returns a list of filename strings for each file in the path argument
+# print(os.listdir(path))  # returns a list of filename strings for each file in the path argument
 
 # Getting all the total size of all the files in this directory
 totalsize = 0
