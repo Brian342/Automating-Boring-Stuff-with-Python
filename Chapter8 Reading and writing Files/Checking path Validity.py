@@ -7,3 +7,4 @@ path2 = '/Users/briankimanzi/Documents/programming Languages/PythonProgramming/A
 
 # print(os.path.isfile(path2))  # returns true if the path argument exists and is a file and will return False otherwise
 
+print(os.path.isdir(path)) #
