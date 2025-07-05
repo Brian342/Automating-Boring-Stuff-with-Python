@@ -17,4 +17,6 @@ import os.path
 
 calcFilePath = '/Users/briankimanzi/Documents/programming Languages/PythonProgramming/Automating-Boring-Stuff-with-Python/Chapter8 Reading and writing Files'
 # print(os.path.split(calcFilePath)) # returns the base name and dir path together
-print((os.path.dirname(calcFilePath), os.path.basename(calcFilePath)))  # returns the base name and dir path together
+# print((os.path.dirname(calcFilePath), os.path.basename(calcFilePath)))  # returns the base name and dir path together
+
+
