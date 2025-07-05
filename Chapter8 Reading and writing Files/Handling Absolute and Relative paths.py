@@ -19,4 +19,4 @@ calcFilePath = '/Users/briankimanzi/Documents/programming Languages/PythonProgra
 # print(os.path.split(calcFilePath)) # returns the base name and dir path together
 # print((os.path.dirname(calcFilePath), os.path.basename(calcFilePath)))  # returns the base name and dir path together
 
-print(calcFilePath.split(os.path.sep))
+print(calcFilePath.split(os.path.sep)) #
