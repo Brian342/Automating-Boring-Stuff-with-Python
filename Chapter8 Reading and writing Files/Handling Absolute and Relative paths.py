@@ -16,5 +16,7 @@ import os.path
 # print(os.path.dirname(path))  # returns a string of everything that comes before the last slash in the path argument
 
 calcFilePath = '/Users/briankimanzi/Documents/programming Languages/PythonProgramming/Automating-Boring-Stuff-with-Python/Chapter8 Reading and writing Files'
-print(os.path.split(calcFilePath)) # returns the base name and dir path together
+# print(os.path.split(calcFilePath)) # returns the base name and dir path together
+
+
 
