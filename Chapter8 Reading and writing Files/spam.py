@@ -2,5 +2,8 @@
 # greetings!
 # if anything else is stored in spam
 
-spam = []
+spam = [1,2,3]
+for details in spam:
+    print(details)
+
 
