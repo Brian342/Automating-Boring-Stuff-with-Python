@@ -2,11 +2,10 @@
 # greetings!
 # if anything else is stored in spam
 
-spam = [1, 2, 3]
-for details in spam:
-    if details == 1:
-        print("Hello")
-    elif details == 2:
-        print("Howdy")
-    else:
-        print("Greetings")
+values = int(input("Enter value between 1,2,3.... n = "))
+if values == 1:
+    print("Hello")
+elif values == 2:
+    print("Howdy")
+else:
+    print("Greetings")
