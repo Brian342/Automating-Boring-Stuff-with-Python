@@ -2,8 +2,11 @@
 # greetings!
 # if anything else is stored in spam
 
-spam = [1,2,3]
+spam = [1, 2, 3]
 for details in spam:
-    print(details)
-
-
+    if details == 1:
+        print("Hello")
+    elif details == 2:
+        print("Howdy")
+    else:
+        print("Greetings")
