@@ -1,2 +1,2 @@
 baconFile = open('bacon.txt', 'w')
-baconFile.write('Hello world')
+baconFile.write('Hello world!\n')
