@@ -6,4 +6,4 @@ baconFile = open('bacon.txt', 'a')
 print(baconFile.write('Bacon is not a vegetables'))
 
 baconFile.close()
-baconFile = open()
+baconFile = open('bacon.txt')
