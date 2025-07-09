@@ -1,1 +1,1 @@
-baconFile = open('bacon.txt')
+baconFile = open('bacon.txt', 'w')
