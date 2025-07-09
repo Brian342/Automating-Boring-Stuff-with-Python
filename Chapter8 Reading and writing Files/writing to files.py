@@ -7,3 +7,4 @@ print(baconFile.write('Bacon is not a vegetables'))
 
 baconFile.close()
 baconFile = open('bacon.txt')
+content = baconFile.read()
