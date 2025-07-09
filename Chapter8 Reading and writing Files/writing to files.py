@@ -2,4 +2,4 @@ baconFile = open('bacon.txt', 'w')
 print(baconFile.write('Hello world!\n'))
 
 baconFile.close()
-baconFile = open('bacon')
+baconFile = open('bacon.txt')
