@@ -5,3 +5,4 @@ print(pprint.pformat(cats))
 
 fileObj = open('mycats.py', 'w')
 print(fileObj.write('cats = ' + pprint.pformat(cats) + '\n'))
+fileObj.close()
