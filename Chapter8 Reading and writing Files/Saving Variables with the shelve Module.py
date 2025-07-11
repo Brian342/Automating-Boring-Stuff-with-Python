@@ -6,4 +6,4 @@ shelfFile['cats'] = cats
 shelfFile.close()
 
 shelfFile = shelve.open('mydata')
-type(shelfFile)
+print(type(shelfFile))
