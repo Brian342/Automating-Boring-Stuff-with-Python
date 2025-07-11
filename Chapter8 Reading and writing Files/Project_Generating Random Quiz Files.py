@@ -29,4 +29,5 @@ for quizNum in range(35):
     quizFile.write('\n\n')
 
     # shuffle the order of the state
+    states = list(capitals.keys())
 
