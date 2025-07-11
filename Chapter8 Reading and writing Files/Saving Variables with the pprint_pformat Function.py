@@ -1,2 +1,3 @@
 import pprint
-cats = [{'name': 'zophie', 'desc': 'chubby'}, {'name' :'pooka'}]
+
+cats = [{'name': 'zophie', 'desc': 'chubby'}, {'name': 'pooka', 'desc': 'fluffy'}]
