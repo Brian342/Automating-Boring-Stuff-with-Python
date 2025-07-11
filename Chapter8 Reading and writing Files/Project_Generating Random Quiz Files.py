@@ -19,4 +19,5 @@ capitals = {'Alabama': 'Montgomery', 'Alaska': 'Juneau', 'Arizona': 'phoenix,',
 # step2: create the quiz File and Shuffle the question order
 # Generate 35 quiz files
 for quizNum in range(35):
-    pass
+    # Create the quiz and answer key files
+    quizFile = open('Capitals quiz%s.txt' % (quizNum + 1), 'w')
