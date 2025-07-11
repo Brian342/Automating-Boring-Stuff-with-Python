@@ -5,3 +5,5 @@ cats = ['Zophie', 'Pooka', 'Simon']
 shelfFile['cats'] = cats
 shelfFile.close()
 
+shelfFile = shelve.open('mydata')
+
