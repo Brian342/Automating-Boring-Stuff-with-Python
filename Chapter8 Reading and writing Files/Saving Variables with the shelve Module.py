@@ -13,4 +13,4 @@ shelfFile.close()
 
 shelfFile = shelve.open('mydata')
 print(list(shelfFile.keys()))
-print
+print(list(shelfFile.values()))
