@@ -9,3 +9,4 @@ import mycats
 # fileObj.close()
 
 print(mycats.cats)
+print(mycats.cats[0])
