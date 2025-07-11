@@ -4,4 +4,6 @@ import random
 # The quiz data. Keys are states and values are their capitals
 capitals = {'Alabama': 'Montgomery', 'Alaska': 'Juneau', 'Arizona': 'phoenix,',
             'Arkansas': 'Little Rocks', 'California': 'Sacramento', 'Colorado': 'Denver',
-            'Connecticut': 'Hartford', 'Delaware':'Dover'}
+            'Connecticut': 'Hartford', 'Delaware': 'Dover', 'Florida': 'Tallahassee', 'Georgia': 'Atlanta',
+            'Hawaii': 'Honolulu', 'Idaho': 'Boise', 'Illinois': 'Springfield', 'Indiana': 'indianapolis',
+            'Iowa': 'Des Moines'}
