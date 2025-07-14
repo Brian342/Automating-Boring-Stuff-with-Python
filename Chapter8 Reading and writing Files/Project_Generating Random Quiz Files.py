@@ -44,6 +44,6 @@ for questionNum in range(50):
     random.shuffle(answerOptions)
 
 # step4: write content to the quiz and answer key files
-# write
+# write the question and the answer option
 
 
