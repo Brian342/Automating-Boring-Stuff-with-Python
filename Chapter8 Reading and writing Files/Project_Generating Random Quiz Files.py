@@ -43,6 +43,6 @@ for questionNum in range(50):
     answerOptions = wrongAnswers + [correctAnswers]
     random.shuffle(answerOptions)
 
-# step4:
+# step4: write content to the quiz
 
 
