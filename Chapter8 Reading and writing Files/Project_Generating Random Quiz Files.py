@@ -39,6 +39,6 @@ for questionNum in range(50):
     correctAnswers = capitals[states[questionNum]]
     wrongAnswers = list(capitals.values())
     del wrongAnswers[wrongAnswers.index(correctAnswers)]
-
+    wrongAnswers = random.sample(wrongAnswers, 3)
 
 
