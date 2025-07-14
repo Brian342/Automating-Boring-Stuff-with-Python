@@ -50,7 +50,8 @@ quizFile.write('%s. what is the capital of %s?\n' % (questionNum + states[questi
 for i in range (4):
     quizFile.write(' %s. %s\n' % ('ABCD'[i], answerOptions[i]))
 quizFile.write('\n')
-#
+# write the answer key to a file
+
 
 
 
