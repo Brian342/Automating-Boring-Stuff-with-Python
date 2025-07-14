@@ -12,8 +12,10 @@ capitals = {'Alabama': 'Montgomery', 'Alaska': 'Juneau', 'Arizona': 'phoenix,',
             'Nebraska': 'Lincoln', 'Nevada': 'Carson City', 'New Hampshire': 'Concord', 'New Jersey': 'Trenton',
             'New Mexico': 'Santa Fe', 'New York': 'Albany', 'North Carolina': 'Raleigh', 'North Dakota': 'Bismarck',
             'ohio': 'Columbus', 'Oklahoma': 'Oklahoma City', 'Oregon': 'Salem', 'Pennsylvania': 'Harrisburg',
-            'Rhode Island': 'Providence', 'South Carolina': 'Columbia', 'South Dakota': 'Pierre', 'Tennessee': 'Nashville',
-            'Texas': 'Austin', 'Utah': 'Salt Lake City', 'Vermont': 'Montpelier', 'Virginia': 'Richmond', 'Washington': 'Olympia',
+            'Rhode Island': 'Providence', 'South Carolina': 'Columbia', 'South Dakota': 'Pierre',
+            'Tennessee': 'Nashville',
+            'Texas': 'Austin', 'Utah': 'Salt Lake City', 'Vermont': 'Montpelier', 'Virginia': 'Richmond',
+            'Washington': 'Olympia',
             'West Virginia': 'Charleston', 'Wisconsin': 'Madison', 'Wyoming': 'Cheyenne'}
 
 # step2: create the quiz File and Shuffle the question order
@@ -32,28 +34,25 @@ for quizNum in range(35):
     states = list(capitals.keys())
     random.shuffle(states)
 
-# step3: Create the answer options
-# loop through all 50 states, making a question for each.
-for questionNum in range(50):
-    # get right and wrong answers
-    correctAnswers = capitals[states[questionNum]]
-    wrongAnswers = list(capitals.values())
-    del wrongAnswers[wrongAnswers.index(correctAnswers)]
-    wrongAnswers = random.sample(wrongAnswers, 3)
-    answerOptions = wrongAnswers + [correctAnswers]
-    random.shuffle(answerOptions)
+    # step3: Create the answer options
+    # loop through all 50 states, making a question for each.
+    for questionNum in range(50):
+        # get right and wrong answers
+        correctAnswers = capitals[states[questionNum]]
+        wrongAnswers = list(capitals.values())
+        del wrongAnswers[wrongAnswers.index(correctAnswers)]
+        wrongAnswers = random.sample(wrongAnswers, 3)
+        answerOptions = wrongAnswers + [correctAnswers]
+        random.shuffle(answerOptions)
 
 # step4: write content to the quiz and answer key files
 # write the question and the answer options to the quiz file
-quizFile.write('%s. what is the capital of %s?\n' % (questionNum + 1, states[questionNum]))
-
-for i in range (4):
-    quizFile.write(' %s. %s\n' % ('ABCD'[i], answerOptions[i]))
-quizFile.write('\n')
+        quizFile.write('%s. what is the capital of %s?\n' % (questionNum + 1, states[questionNum]))
+        for i in range(4):
+            quizFile.write(' %s. %s\n' % ('ABCD'[i], answerOptions[i]))
+        quizFile.write('\n')
 # write the answer key to a file
-answerKeyFile.write('%s. %s\n' % (questionNum + 1, 'ABCD'[answerOptions.index(correctAnswers)]))
+        answerKeyFile.write('%s. %s\n' % (questionNum + 1, 'ABCD'[answerOptions.index(correctAnswers)]))
+
 quizFile.close()
 answerKeyFile.close()
-
-
-
