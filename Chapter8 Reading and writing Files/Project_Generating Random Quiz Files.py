@@ -36,6 +36,6 @@ for quizNum in range(35):
 # loop through all 50 states, making a question for each.
 for questionNum in range(50):
     # get right and wrong answers
-    correctAswers = capitals
+    correctAnswers = capitals
 
 
