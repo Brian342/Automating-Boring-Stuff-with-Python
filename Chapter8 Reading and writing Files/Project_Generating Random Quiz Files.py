@@ -38,5 +38,7 @@ for questionNum in range(50):
     # get right and wrong answers
     correctAnswers = capitals[states[questionNum]]
     wrongAnswers = list(capitals.values())
+    del wrongAnswers[wrongAnswers.index(correctAnswers)]
+
 
 
