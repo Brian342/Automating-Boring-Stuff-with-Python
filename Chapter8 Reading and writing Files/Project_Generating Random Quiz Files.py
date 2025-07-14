@@ -33,5 +33,7 @@ for quizNum in range(35):
     random.shuffle(states)
 
 # step3: Create the answer options
-# loop through all 50 states, making a question for each
+# loop through all 50 states, making a question for each.
+for questionNum in range(50):
+
 
