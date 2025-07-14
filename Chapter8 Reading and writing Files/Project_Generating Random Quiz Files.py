@@ -40,5 +40,7 @@ for questionNum in range(50):
     wrongAnswers = list(capitals.values())
     del wrongAnswers[wrongAnswers.index(correctAnswers)]
     wrongAnswers = random.sample(wrongAnswers, 3)
+    answerOptions = wrongAnswers + [correctAnswers]
+    random.shuffle(answerOptions)
 
 
