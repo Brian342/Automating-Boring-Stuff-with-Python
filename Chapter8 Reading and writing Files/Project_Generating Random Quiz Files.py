@@ -45,6 +45,10 @@ for questionNum in range(50):
 
 # step4: write content to the quiz and answer key files
 # write the question and the answer options to the quiz file
-quizFile.write('%s. what is the capital of')
+quizFile.write('%s. what is the capital of %s?\n' % (questionNum + states[questionNum]))
+
+for i in range (4):
+    quizFile.write()
+
 
 
