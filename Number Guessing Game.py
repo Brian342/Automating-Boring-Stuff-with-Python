@@ -7,9 +7,17 @@
 
 import random
 rand = random.randint(1, 100)
+print(f"Random number is = {rand}")
 guess = int(input("Enter random number between 1 and 100: "))
 
-print(f"Your guessed number is = {guess}")
-print(f"Random number is = {rand}")
+if rand == guess:
+    print("Hey you guessed correctly!!")
+elif guess < rand:
+    print("Too low")
+elif guess > rand:
+    print("Too high")
+else:
+    print("Out of bound")
+
 
 
