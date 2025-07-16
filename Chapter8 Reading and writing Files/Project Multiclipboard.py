@@ -11,3 +11,4 @@ mcbShelf = shelve.open('mcb')
 mcbShelf.close()
 
 # step2: Save clipboard Content with a keyword
+# save clipboard content
