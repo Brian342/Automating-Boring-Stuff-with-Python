@@ -9,5 +9,5 @@ import random
 rand = random.randint(1, 100)
 guess = int(input("Enter random number between 1 and 100: "))
 
-print(rand)
-print(guess)
+print(f"Your guessed number is = {guess}")
+print(f"Random number is = {rand}")
