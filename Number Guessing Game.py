@@ -6,3 +6,4 @@
 # Exit the game if the user guesses correctly or after a maximum number of attempts.
 
 import random
+guess = random.randint(1, 100)
