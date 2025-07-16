@@ -12,3 +12,8 @@ mcbShelf.close()
 
 # step2: Save clipboard Content with a keyword
 # save clipboard content
+if len(sys.argv) == 3 and sys.argv[1].lower() == 'save':
+    mcbShelf[sys.argv[2]] = pyperclip.paste()
+elif len(sys.argv) == 2:
+    pass
+mcbShelf.close()
