@@ -5,3 +5,4 @@
 # Provide appropriate feedback (e.g., "Too high" or "Too low").
 # Exit the game if the user guesses correctly or after a maximum number of attempts.
 
+import random
