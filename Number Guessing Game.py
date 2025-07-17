@@ -19,9 +19,10 @@ while trial < 3:
     else:
         print("Out of bound")
     trial += 1
+    print("Try again!")
     if trial == 3:
         print(f"Random number is = {rand}")
-    break
+        break
 
 
 
