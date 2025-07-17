@@ -20,8 +20,11 @@ while trial < 3:
     else:
         print("Out of bound")
     trial += 1
-    print(f"Try again! "
-          f"No of Trial {trial}!")
+    print(f"""
+            No of Trial {trial} out of 3
+            Try again! 
+            """)
+    print()
     if trial == 3:
         print("Trial Ends")
         print(f"Random number is = {rand}")
