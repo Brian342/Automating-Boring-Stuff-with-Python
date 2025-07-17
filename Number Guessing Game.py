@@ -12,6 +12,7 @@ while trial < 3:
     guess = int(input("Enter random number between 1 and 100: "))
     if rand == guess:
         print("Hey you guessed correctly!!")
+        break
     elif guess < rand:
         print("Too low")
     elif guess > rand:
@@ -19,8 +20,10 @@ while trial < 3:
     else:
         print("Out of bound")
     trial += 1
-    print("Try again!")
+    print(f"Try again! "
+          f"No of Trial {trial}!")
     if trial == 3:
+        print("Trial Ends")
         print(f"Random number is = {rand}")
         break
 
