@@ -7,11 +7,10 @@
 
 import random
 rand = random.randint(1, 100)
-print(f"Random number is = {rand}")
-guess = int(input("Enter random number between 1 and 100: "))
-
+# print(f"Random number is = {rand}")
 trial = 0
-while True:
+while trial < 3:
+    guess = int(input("Enter random number between 1 and 100: "))
     if rand == guess:
         print("Hey you guessed correctly!!")
     elif guess < rand:
