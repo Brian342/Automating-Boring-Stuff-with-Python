@@ -7,7 +7,6 @@
 
 import random
 rand = random.randint(1, 100)
-# print(f"Random number is = {rand}")
 trial = 0
 while trial < 3:
     guess = int(input("Enter random number between 1 and 100: "))
