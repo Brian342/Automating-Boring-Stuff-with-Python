@@ -10,14 +10,20 @@ rand = random.randint(1, 100)
 print(f"Random number is = {rand}")
 guess = int(input("Enter random number between 1 and 100: "))
 
-if rand == guess:
-    print("Hey you guessed correctly!!")
-elif guess < rand:
-    print("Too low")
-elif guess > rand:
-    print("Too high")
-else:
-    print("Out of bound")
+trial = 0
+while True:
+    if rand == guess:
+        print("Hey you guessed correctly!!")
+    elif guess < rand:
+        print("Too low")
+    elif guess > rand:
+        print("Too high")
+    else:
+        print("Out of bound")
+    trial += 1
+    if trial == 3:
+        print(f"Random number is = {rand}")
+    break
 
 
 
