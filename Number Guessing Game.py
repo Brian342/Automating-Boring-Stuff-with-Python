@@ -22,7 +22,7 @@ while trial < 3:
     trial += 1
     print(f"""
             No of Trial {trial} out of 3
-            Try again! 
+            
             """)
     print()
     if trial == 3:
