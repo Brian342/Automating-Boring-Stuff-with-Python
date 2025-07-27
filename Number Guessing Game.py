@@ -6,7 +6,14 @@
 # Exit the game if the user guesses correctly or after a maximum number of attempts.
 
 import random
-rand = random.randint(1, 100)
+rand = random.randint(1, 99)
+print("Welcome User to this Guessing game!!\n"
+      "==================================================\n"
+      "Rules\n"
+      "1.Number of Trials are 3.\n"
+      "2.Enter number between 1 and 100\n"
+      "Enjoy:)")
+print()
 trial = 0
 while trial < 3:
     guess = int(input("Enter random number between 1 and 100: "))
