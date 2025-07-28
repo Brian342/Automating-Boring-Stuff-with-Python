@@ -19,7 +19,11 @@ try:
     print("4: To show Your List")
     print("0: To Abort Task")
 
-    option = input("")
+    option = input("Enter either option 1/2/3/4/0 =>")
+
+    if option == 1:
+        newItem = input("Enter your Item to the lIst(Enter 0 to cancel) =>")
+
 except Exception as e:
     print("Error!")
 
