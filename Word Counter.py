@@ -18,7 +18,3 @@ except FileNotFoundError as e:
 except Exception as e:
     print("An error occured")
 
-
-
-# objective 2
-
