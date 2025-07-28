@@ -6,9 +6,19 @@
 
 import os
 # Objective 1
-TextFile = open("/Users/briankimanzi/Documents/programmingLanguages/PythonProgramming/Automating-Boring-Stuff-with-Python/SampleFile")
-TextFileRead = TextFile.read()
-print(TextFileRead)
+filepath = "/Users/briankimanzi/Documents/programmingLanguages/PythonProgramming/Automating-Boring-Stuff-with-Python/SampleFile"
+try:
+    with open(filepath, 'r') as file:
+        content = file.read()
+        Words = content.split()
+        WordsLen = len(Words)
+        print(f"The words count is {WordsLen}")
+except FileNotFoundError as e:
+    print('File does not exist!!')
+except Exception as e:
+    print("An error occured")
+
+
 
 # objective 2
 
