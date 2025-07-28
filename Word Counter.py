@@ -11,5 +11,4 @@ TextFileRead = TextFile.read()
 print(TextFileRead)
 
 # objective 2
-for words in TextFileRead:
-    print(words)
+
