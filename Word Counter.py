@@ -9,3 +9,6 @@ import os
 TextFile = open("/Users/briankimanzi/Documents/programmingLanguages/PythonProgramming/Automating-Boring-Stuff-with-Python/SampleFile")
 TextFileRead = TextFile.read()
 print(TextFileRead)
+
+# objective 2
+
