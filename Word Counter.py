@@ -5,3 +5,5 @@
 # Split the content into words and count them. Handle exceptions, such as file not found.
 
 import os
+
+textFile =
