@@ -11,3 +11,15 @@ print("Welcome user to a simple to do list application")
 
 toDoList = []
 
+try:
+    print("Options")
+    print("1: To add items")
+    print("2: To Delete items")
+    print("3: To mark item as Done")
+    print("4: To show Your List")
+    print("0: To Abort Task")
+
+    option = input("")
+except Exception as e:
+    print("Error!")
+
