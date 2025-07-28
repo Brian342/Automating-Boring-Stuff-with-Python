@@ -7,3 +7,4 @@
 # Store the tasks in a file (either CSV or JSON format). Mark tasks as completed.
 # Implement basic error handling (e.g., trying to delete a task that doesn’t exist).
 
+print("Welcome user to a simple to do list application")
