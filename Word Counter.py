@@ -5,4 +5,6 @@
 # Split the content into words and count them. Handle exceptions, such as file not found.
 
 import os
-TextFile = open()
+TextFile = open("/Users/briankimanzi/Documents/programmingLanguages/PythonProgramming/Automating-Boring-Stuff-with-Python/SampleFile")
+TextFileRead = TextFile.read()
+print(TextFileRead)
