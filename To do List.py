@@ -24,6 +24,7 @@ try:
     if option == 1:
         newItem = input("Enter your Item to the lIst(Enter 0 to cancel) =>")
 
+
 except Exception as e:
     print("Error!")
 
