@@ -30,6 +30,7 @@ while True:
 
             else:
                 toDoList.append({"task": newItem, "status": "Unchecked"})
+                print("\nTask was added successfully")
 
     except Exception as e:
         print("Error!")
