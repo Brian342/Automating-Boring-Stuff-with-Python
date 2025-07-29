@@ -11,22 +11,26 @@ print("Welcome user to a simple to do list application")
 
 toDoList = []
 
-try:
-    print("Options")
-    print("1: To add items")
-    print("2: To Delete items")
-    print("3: To mark item as Done")
-    print("4: To show Your List")
-    print("0: To Abort Task")
+while True:
+    try:
+        print("Options")
+        print("1: To add items")
+        print("2: To Delete items")
+        print("3: To mark item as Done")
+        print("4: To show Your List")
+        print("0: To Abort Task")
 
-    option = input("Enter either option 1/2/3/4/0 =>")
+        option = input("Enter either option 1/2/3/4/0 =>")
 
-    if option == 1:
-        newItem = input("Enter your Item to the lIst(Enter 0 to cancel) =>")
+        if option == 1:
+            newItem = input("Enter your Item to the lIst(Enter 0 to cancel) =>")
 
-    else:
-        toDoList.append({"task"})
+            if newItem == '0':
+                continue
 
-except Exception as e:
-    print("Error!")
+            else:
+                toDoList.append({"task": newItem, "status": "Unchecked"})
+
+    except Exception as e:
+        print("Error!")
 
