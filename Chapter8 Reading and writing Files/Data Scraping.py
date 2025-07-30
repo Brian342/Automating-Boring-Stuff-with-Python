@@ -11,4 +11,7 @@ from bs4 import BeautifulSoup
 url = "https://www.jumia.co.ke/catalog/?q=macbook+laptop"
 response = requests.get(url)
 soup = BeautifulSoup(response.text, "html.parser")
-print(soup.prettify())
+
+# the link tags
+for link in soup.find_all('a'):
+    print(link.get('href'))
