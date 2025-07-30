@@ -7,3 +7,4 @@
 # Save the scraped data into a CSV file.
 
 import requests
+from bs4 import BeautifulSoup
