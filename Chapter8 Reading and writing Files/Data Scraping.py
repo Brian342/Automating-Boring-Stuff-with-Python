@@ -12,6 +12,5 @@ url = "https://www.jumia.co.ke/catalog/?q=macbook+laptop"
 response = requests.get(url)
 soup = BeautifulSoup(response.text, "html.parser")
 
-# The link tags
-for link in soup.find_all('a'):
-    print(link.get('href'))
+link = soup.find_all('a')
+print(link)
