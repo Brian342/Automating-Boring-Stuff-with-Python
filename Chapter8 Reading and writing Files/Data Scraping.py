@@ -13,4 +13,4 @@ response = requests.get(url)
 soup = BeautifulSoup(response.text, "html.parser")
 
 link = soup.find('div')
-print(link)
+print(link.prettify())
