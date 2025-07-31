@@ -20,5 +20,6 @@ product = soup.find_all('article', class_='prd _fb col c-prd')
 for products in product:
     tag_title = products.find('h3')
     tag_price = products.find('div', class_='prc')
-    if tag_title:
+    if tag_title and tag_price:
         print(tag_title.text)
+        print(tag_price.text)
