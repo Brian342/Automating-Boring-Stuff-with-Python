@@ -12,7 +12,7 @@ url = "https://www.jumia.co.ke/catalog/?q=macbook+laptop"
 headers = {
     'User-Agent': 'Chrome/138'
 }
-response = requests.get(url)
+response = requests.get(url, headers=headers)
 soup = BeautifulSoup(response.text, "html.parser")
 
 link = soup.find('div', class_='-phs -pvxs row _no-g _4cl-3cm-shs')
