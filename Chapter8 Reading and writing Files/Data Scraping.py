@@ -8,6 +8,7 @@
 
 import requests
 from bs4 import BeautifulSoup
+
 url = "https://www.jumia.co.ke/catalog/?q=macbook+laptop"
 headers = {
     'User-Agent': 'Chrome/138'
@@ -21,5 +22,4 @@ for products in product:
     tag_title = products.find('h3')
     tag_price = products.find('div', class_='prc')
     if tag_title and tag_price:
-        print(tag_title.text, sep="")
-        print(tag_price.text)
+        print(f"Product: {tag_title.text}, Price->{tag_price.text}", sep=' ')
