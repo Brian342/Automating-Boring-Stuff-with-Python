@@ -27,5 +27,5 @@ for products in product:
 
         with open('products.csv', 'w', newline='') as csvFile:
             writer = csv.writer(csvFile)
-            writer.writerows(tag_title and tag_price)
+            writer.writerows(tag_title)
 
