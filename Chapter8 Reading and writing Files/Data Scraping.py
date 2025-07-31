@@ -16,4 +16,8 @@ response = requests.get(url, headers=headers)
 soup = BeautifulSoup(response.text, "html.parser")
 
 product = soup.find_all('article', class_='prd _fb col c-prd')
-print(product)
+
+for links in product:
+    tag_title = links.find('h3')
+    if tag_title:
+        print(tag_title.text)
