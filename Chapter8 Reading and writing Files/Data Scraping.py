@@ -8,6 +8,7 @@
 
 import requests
 from bs4 import BeautifulSoup
+import csv
 
 url = "https://www.jumia.co.ke/catalog/?q=macbook+laptop"
 headers = {
@@ -23,4 +24,5 @@ for products in product:
     tag_price = products.find('div', class_='prc')
     if tag_title and tag_price:
         print(f"{tag_title.text.strip()}, \nPrice->{tag_price.text.strip()}", sep=' ')
+        appleProduct = tag_price.save()
 
