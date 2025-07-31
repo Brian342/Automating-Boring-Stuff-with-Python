@@ -21,14 +21,16 @@ product = soup.find_all('article', class_='prd _fb col c-prd')
 
 with open('Jumia Macbook sale.csv', 'w', encoding='utf-8') as csvFile:
     writer = csv.writer(csvFile)
-    writer.writerows(['Product Name', 'Price', 'Ratings'])
+    writer.writerow(['Product Name', 'Price', 'Ratings'])
+
     for products in product:
         tag_title = products.find('h3')
         tag_price = products.find('div', class_='prc')
         ratings = products.find('div', class_='stars _s')
+
         if tag_title and tag_price and ratings:
             print(f"{tag_title.text.strip()}, \nPrice->{tag_price.text.strip()} Ratings-> {ratings.text}", sep='')
-            writer.writerows([tag_title, tag_price, ratings])
+            writer.writerow([tag_title, tag_price, ratings])
 
 
 
