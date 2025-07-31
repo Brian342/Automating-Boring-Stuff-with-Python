@@ -22,4 +22,4 @@ for products in product:
     tag_title = products.find('h3')
     tag_price = products.find('div', class_='prc')
     if tag_title and tag_price:
-        print(f"Product: {tag_title.text}, Price->{tag_price.text}", sep=' ')
+        print(f"{tag_title.text.strip()}, Price->{tag_price.text.strip()}", sep=' ')
