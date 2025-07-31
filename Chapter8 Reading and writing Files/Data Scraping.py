@@ -25,7 +25,7 @@ for products in product:
     if tag_title and tag_price:
         print(f"{tag_title.text.strip()}, \nPrice->{tag_price.text.strip()}", sep=' ')
 
-        with open('products.csv', 'w', newline='') as csvFile:
+        with open('products.csv', 'w') as csvFile:
             writer = csv.writer(csvFile)
             writer.writerows(tag_title)
 
