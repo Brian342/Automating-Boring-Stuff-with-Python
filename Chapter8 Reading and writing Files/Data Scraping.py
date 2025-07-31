@@ -15,7 +15,5 @@ headers = {
 response = requests.get(url, headers=headers)
 soup = BeautifulSoup(response.text, "html.parser")
 
-product = soup.find_all('article', )
-# link = soup.find('div', class_='-phs -pvxs row _no-g _4cl-3cm-shs')
-# article = link.find('xpath', class_='prd _fb col c-prd')
+product = soup.find_all('article', class_='prd _fb col c-prd')
 print(product)
