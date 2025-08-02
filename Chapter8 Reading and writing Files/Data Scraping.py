@@ -28,6 +28,7 @@ with open('Jumia_Macbook_sale.csv', 'w', newline='', encoding='utf-8') as csvFil
         tag_price = products.find('div', class_='prc')
         ratings = products.find('div', class_='stars _s')
 
+
         if tag_title and tag_price:
             product_name = tag_title.text.strip()
             Price = tag_price.text.strip()
