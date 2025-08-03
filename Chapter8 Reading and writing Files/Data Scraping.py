@@ -31,7 +31,7 @@ with open('Jumia_Macbook_sale.csv', 'w', newline='', encoding='utf-8') as csvFil
         if tag_title and tag_price:
             product_name = tag_title.text.strip()
             Price = tag_price.text.strip()
-            Ratings = ratings.text.strip() if ratings else "No rating"
+            Ratings = ratings.text.strip() if ratings else "No rating."
 
             print(f"{product_name} \nprice->{Price} Ratings->{Ratings}")
             writer.writerow([product_name, Price, Ratings])
