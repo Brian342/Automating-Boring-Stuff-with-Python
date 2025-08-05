@@ -71,6 +71,11 @@ for page in range(num_pages):
             next_button = WebDriverWait(driver, 10).until(
                 EC.element_to_be_clickable((By.CSS_SELECTOR, 'button[data-test="next-page"]'))
             )
+
+            # 👇 Scroll it into view to avoid interception
+            driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", next_button)
+            time.sleep(5)  # Give it a beat to stabilize
+
             next_button.click()
             print("Clicked the next page button")
         except Exception as e:
