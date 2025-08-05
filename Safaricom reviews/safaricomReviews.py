@@ -77,7 +77,7 @@ for page in range(num_pages):
 
             # 👇 Scroll it into view to avoid interception
             driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", next_button)
-            time.sleep(5)  # Give it a beat to stabilize
+            time.sleep(5)
 
             next_button.click()
             print("Clicked the next page button")
