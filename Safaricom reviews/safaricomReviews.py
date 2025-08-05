@@ -81,7 +81,7 @@ for page in range(num_pages):
 
 driver.quit()
 
-print(driver.title)
+print(f"\nTotal Reviews Scraped: {len(titles)}")
 print(f"Job Title: {titles}")
 print()
 print(f"Job Ratings: {ratings}")
