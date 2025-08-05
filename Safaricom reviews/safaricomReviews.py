@@ -15,7 +15,7 @@ driver.get(
     "https://www.glassdoor.com/Reviews/Safaricom-Kenya-Reviews-EI_IE304581.0,9_IL.10,15_IN130.htm?filter.iso3Language=eng")
 
 # Let the page load
-time.sleep(50)
+time.sleep(100)
 
 # soup = BeautifulSoup(html, 'html.parser')
 
@@ -85,6 +85,7 @@ except Exception as e:
     print("Failed to find or click the next page button:", e)
 
 driver.quit()
+
 print(driver.title)
 print(f"Job Title: {titles}")
 print()
