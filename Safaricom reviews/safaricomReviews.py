@@ -15,14 +15,14 @@ driver.get(
     "https://www.glassdoor.com/Reviews/Safaricom-Kenya-Reviews-EI_IE304581.0,9_IL.10,15_IN130.htm?filter.iso3Language=eng")
 
 # Let the page load
-time.sleep(100)
+time.sleep(40)
 
 # soup = BeautifulSoup(html, 'html.parser')
 
 
 titles, ratings, Pros, cons, Feedback = [], [], [], [], []
 
-num_pages = 10
+num_pages = 2
 
 for page in range(num_pages):
     time.sleep(20)
