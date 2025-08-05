@@ -33,9 +33,9 @@ for page in range(num_pages):
     html = driver.page_source
     soup = BeautifulSoup(html, 'html.parser')
     reviews = soup.find('div', id='ReviewsFeed')
-    # if not reviews:
-    # print('No reviews found on this page .... Skipping!')
-    # continue
+    if not reviews:
+        print('No reviews found on this page .... Skipping!')
+        continue
     review_items = reviews.select('li')
     title = soup.title.string
 
