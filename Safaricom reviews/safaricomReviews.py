@@ -26,7 +26,7 @@ Pros = []
 cons = []
 Feedback = []
 
-num_pages = 141
+num_pages = 10
 
 for page in range(num_pages):
     time.sleep(20)
