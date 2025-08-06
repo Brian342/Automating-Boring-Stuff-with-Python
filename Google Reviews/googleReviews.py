@@ -87,6 +87,7 @@ for page in range(num_pages):
         titles.append(title)
         ratings.append(rating)
         timeStamp.append(time)
+        JobStatus.append(job)
         Pros.append(ProsBody)
         cons.append(ConsBody)
 
