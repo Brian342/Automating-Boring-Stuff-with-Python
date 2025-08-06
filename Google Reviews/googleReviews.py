@@ -52,7 +52,8 @@ for page in range(num_pages):
         job = job_tag.get_text(strip=True) if job_tag else 'N/A'
 
         # location
-        location_tag = items.select_one('[data-test="review-avatar-tag"]')
+        location_tag = items.find('div',
+                                  class_="text-with-icon_LabelContainer__xbtB8 text-with-icon_disableTruncationMobile__o_kha")
         location = location_tag.get_text(strip=True) if location_tag else 'N/A'
 
         # extracting the title
