@@ -44,7 +44,7 @@ for page in range(num_pages):
 
         # getting the timestamp
         time_tag = items.find('span', class_="timestamp_reviewDate__dsF9n")
-        time = time_tag.get_text(strip=True) if time_tag else 'N/A'
+        PostTime = time_tag.get_text(strip=True) if time_tag else 'N/A'
 
         # job status
         job_tag = items.find('div',
@@ -88,7 +88,7 @@ for page in range(num_pages):
 
         titles.append(title)
         ratings.append(rating)
-        timeStamp.append(time)
+        timeStamp.append(PostTime)
         JobStatus.append(job)
         locationStatus.append(location)
         Pros.append(ProsBody)
