@@ -56,8 +56,8 @@ for page in range(num_pages):
         cons_tag = items.select_one('[data-test="review-text-CONS"]')
         ConsBody = cons_tag.get_text(strip=True) if cons_tag else 'N/A'
 
-        feedback_tag = items.select_one('[data-test="review-text-FEEDBACK"]')
-        feedbackBody = feedback_tag.get_text(strip=True) if feedback_tag else 'N/A'
+        # feedback_tag = items.select_one('[data-test="review-text-FEEDBACK"]')
+        # feedbackBody = feedback_tag.get_text(strip=True) if feedback_tag else 'N/A'
 
         titles.append(title)
         ratings.append(rating)
