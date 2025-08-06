@@ -21,7 +21,7 @@ time.sleep(60)
 
 titles, ratings, Pros, cons, Feedback = [], [], [], [], []
 
-num_pages = 5
+num_pages = 141
 
 for page in range(num_pages):
     time.sleep(20)
@@ -55,25 +55,25 @@ for page in range(num_pages):
         cons_tag = items.select_one('[data-test="review-text-CONS"]')
         ConsBody = cons_tag.get_text(strip=True) if cons_tag else 'N/A'
 
-        try:
-            dropDown_button = items.find_element(By.CSS_SELECTOR, '.expand-button_ExpandButton__Wevvg')
-
-            # Scroll it into view to avoid interception
-            driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", dropDown_button)
-            time.sleep(5)
-            dropDown_button.click()
-            print("Clicked the drop down button")
-        except Exception as e:
-            print("Failed to find or click the drop down button:", e)
-
-        feedback_tag = items.select_one('[data-test="review-text-FEEDBACK"]')
-        feedbackBody = feedback_tag.get_text(strip=True) if feedback_tag else 'N/A'
+        # try:
+        #     dropDown_button = items.find_element(By.CSS_SELECTOR, '.expand-button_ExpandButton__Wevvg')
+        #
+        #     # Scroll it into view to avoid interception
+        #     driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", dropDown_button)
+        #     time.sleep(5)
+        #     dropDown_button.click()
+        #     print("Clicked the drop down button")
+        # except Exception as e:
+        #     print("Failed to find or click the drop down button:", e)
+        #
+        # feedback_tag = items.select_one('[data-test="review-text-FEEDBACK"]')
+        # feedbackBody = feedback_tag.get_text(strip=True) if feedback_tag else 'N/A'
 
         titles.append(title)
         ratings.append(rating)
         Pros.append(ProsBody)
         cons.append(ConsBody)
-        Feedback.append(feedbackBody)
+        # Feedback.append(feedbackBody)
 
     try:
         next_button = WebDriverWait(driver, 10).until(
@@ -99,5 +99,5 @@ print()
 print(f"Pros: {Pros}")
 print()
 print(f"Cons: {cons}")
-print()
-print(f"Advice to Management: {Feedback}")
+# print()
+# print(f"Advice to Management: {Feedback}")
