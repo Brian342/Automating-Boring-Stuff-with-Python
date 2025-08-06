@@ -33,6 +33,7 @@ for page in range(num_pages):
         continue
     review_items = reviews.select('li')
     title = soup.title.string
+    print(title)
 
     for items in review_items:
         rating_tag = items.select_one('[data-test="review-rating-label"]')
@@ -90,7 +91,6 @@ for page in range(num_pages):
         print("Failed to find or click the next page button:", e)
 
 driver.quit()
-
 print(f"\nTotal Reviews Scraped: {len(titles)}")
 print(f"Job Title: {titles}")
 print()
@@ -99,5 +99,4 @@ print()
 print(f"Pros: {Pros}")
 print()
 print(f"Cons: {cons}")
-# print()
-# print(f"Advice to Management: {Feedback}")
+
