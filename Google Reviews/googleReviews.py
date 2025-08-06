@@ -47,14 +47,18 @@ for page in range(num_pages):
         PostTime = time_tag.get_text(strip=True) if time_tag else 'N/A'
 
         # job status
-        job_tag = items.find('div',
-                             class_="text-with-icon_LabelContainer__xbtB8 text-with-icon_disableTruncationMobile__o_kha")
-        job = job_tag.get_text(strip=True) if job_tag else 'N/A'
+        job_location_tags = items.select('span[class*="text-with-icon_TextWithIcon__"]')
+        job_status = job_location_tags[0].get_text(strip=True) if len(job_location_tags) > 0 else 'N/A'
+        location = job_location_tags[1].get_text(strip=True) if len(job_location_tags) > 1 else 'N/A'
 
-        # location
-        location_tag = items.find('div',
-                                  class_="text-with-icon_TextWithIcon__5ZZqT")
-        location = location_tag.get_text(strip=True) if location_tag else 'N/A'
+        # job_tag = items.find('div',
+        #                      class_="text-with-icon_LabelContainer__xbtB8 text-with-icon_disableTruncationMobile__o_kha")
+        # job = job_tag.get_text(strip=True) if job_tag else 'N/A'
+        #
+        # # location
+        # location_tag = items.find('div',
+        #                           class_="text-with-icon_TextWithIcon__5ZZqT")
+        # location = location_tag.get_text(strip=True) if location_tag else 'N/A'
 
         # extracting the title
         title_tag = items.select_one('[data-test="review-avatar-label"]')
@@ -90,7 +94,7 @@ for page in range(num_pages):
         titles.append(title)
         ratings.append(rating)
         timeStamp.append(PostTime)
-        JobStatus.append(job)
+        JobStatus.append(job_status)
         locationStatus.append(location)
         Pros.append(ProsBody)
         cons.append(ConsBody)
