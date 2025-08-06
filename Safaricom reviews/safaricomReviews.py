@@ -19,7 +19,6 @@ time.sleep(60)
 
 # soup = BeautifulSoup(html, 'html.parser')
 
-
 titles, ratings, Pros, cons, Feedback = [], [], [], [], []
 
 num_pages = 2
