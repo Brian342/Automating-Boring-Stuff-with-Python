@@ -57,14 +57,11 @@ for page in range(num_pages):
         ConsBody = cons_tag.get_text(strip=True) if cons_tag else 'N/A'
 
         try:
-            dropDown_button = WebDriverWait(driver, 10).until(
-                EC.element_to_be_clickable((By.CSS_SELECTOR, '.expand-button_ExpandButton__Wevvg'))
-            )
+            dropDown_button = items.find_element(By.CSS_SELECTOR, '.expand-button_ExpandButton__Wevvg')
 
             # Scroll it into view to avoid interception
             driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", dropDown_button)
             time.sleep(5)
-
             dropDown_button.click()
             print("Clicked the drop down button")
         except Exception as e:
