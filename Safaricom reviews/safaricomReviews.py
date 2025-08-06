@@ -21,7 +21,7 @@ time.sleep(60)
 
 titles, ratings, Pros, cons, Feedback = [], [], [], [], []
 
-num_pages = 2
+num_pages = 5
 
 for page in range(num_pages):
     time.sleep(20)
