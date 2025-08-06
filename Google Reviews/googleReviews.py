@@ -22,7 +22,9 @@ time.sleep(60)
 
 titles, ratings, timeStamp, JobStatus, locationStatus, Pros, cons = [], [], [], [], [], [], []
 
-num_pages = 4515
+# num_pages = 4515
+num_pages = 4
+
 
 for page in range(num_pages):
     time.sleep(10)
