@@ -25,7 +25,6 @@ titles, ratings, timeStamp, JobStatus, locationStatus, Pros, cons = [], [], [], 
 # num_pages = 4515
 num_pages = 4
 
-
 for page in range(num_pages):
     time.sleep(10)
     html = driver.page_source
@@ -47,17 +46,13 @@ for page in range(num_pages):
         PostTime = time_tag.get_text(strip=True) if time_tag else 'N/A'
 
         # job status
-        job_location_tags = items.select('span[class*="text-with-icon_TextWithIcon__"]')
-        job_status = job_location_tags[0].get_text(strip=True) if len(job_location_tags) > 0 else 'N/A'
-        location = job_location_tags[1].get_text(strip=True) if len(job_location_tags) > 1 else 'N/A'
+        job_tag = items.find('div',
+                             class_="text-with-icon_LabelContainer__xbtB8 text-with-icon_disableTruncationMobile__o_kha")
+        job = job_tag.get_text(strip=True) if job_tag else 'N/A'
 
-        # job_tag = items.find('div',
-        #                      class_="text-with-icon_LabelContainer__xbtB8 text-with-icon_disableTruncationMobile__o_kha")
-        # job = job_tag.get_text(strip=True) if job_tag else 'N/A'
-        #
-        # # location
-        # location_tag = items.find('div',
-        #                           class_="text-with-icon_TextWithIcon__5ZZqT")
+        # location
+        # location_tag = items.find_next('div',
+        #                                class_="text-with-icon_TextWithIcon__5ZZqT")
         # location = location_tag.get_text(strip=True) if location_tag else 'N/A'
 
         # extracting the title
@@ -94,8 +89,8 @@ for page in range(num_pages):
         titles.append(title)
         ratings.append(rating)
         timeStamp.append(PostTime)
-        JobStatus.append(job_status)
-        locationStatus.append(location)
+        JobStatus.append(job)
+        # locationStatus.append(location)
         Pros.append(ProsBody)
         cons.append(ConsBody)
 
@@ -119,10 +114,10 @@ driver.quit()
 
 with open('googleReviews.csv', 'w', newline='', encoding='utf-8') as csvFile:
     writer = csv.writer(csvFile)
-    writer.writerow(['Job Title', 'Job Ratings', 'Pros', 'Cons'])
+    writer.writerow(['Job Title', 'Job Ratings', 'time', 'JobStatus', 'Pros', 'Cons'])
     for i in range(len(titles)):
         writer.writerow([titles[i], ratings[i], timeStamp[i],
-                         JobStatus[i], locationStatus[i], Pros[i], cons[i]])
+                         JobStatus[i], Pros[i], cons[i]])
 
 print(f"\nTotal Reviews Scraped: {len(titles)}")
 print(f"Job Title: {titles}")
@@ -133,7 +128,7 @@ print(f"TimeStamp: {timeStamp}")
 print()
 print(f"JobStatus: {JobStatus}")
 print()
-print(f"CurrentLocation: {locationStatus}")
+# print(f"CurrentLocation: {locationStatus}")
 print(f"Pros: {Pros}")
 print()
 print(f"Cons: {cons}")
