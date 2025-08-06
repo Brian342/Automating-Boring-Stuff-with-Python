@@ -35,7 +35,7 @@ for page in range(num_pages):
         continue
     review_items = reviews.select('li')
     title = soup.title.string
-    print(title)
+    # print(title)
 
     for items in review_items:
         rating_tag = items.select_one('[data-test="review-rating-label"]')
