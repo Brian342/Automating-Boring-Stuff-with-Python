@@ -20,7 +20,7 @@ time.sleep(60)
 
 # soup = BeautifulSoup(html, 'html.parser')
 
-titles, ratings, timeStamp, Pros, cons = [], [], [], [], []
+titles, ratings, timeStamp, JobStatus, Pros, cons = [], [], [], [], [], []
 
 num_pages = 4515
 
@@ -44,7 +44,10 @@ for page in range(num_pages):
         time_tag = items.find('span', class_="timestamp_reviewDate__dsF9n")
         time = time_tag.get_text(strip=True) if time_tag else 'N/A'
 
-
+        # job status
+        job_tag = items.find('div',
+                             class_="text-with-icon_LabelContainer__xbtB8 text-with-icon_disableTruncationMobile__o_kha")
+        job = job_tag.get_text(strip=True) if job_tag else 'N/A'
 
         # location
         location_tag = items.select_one('[data-test="review-avatar-tag"]')
