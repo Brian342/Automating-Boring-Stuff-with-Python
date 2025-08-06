@@ -16,7 +16,7 @@ driver.get(
     "https://www.glassdoor.com/Reviews/Google-Reviews-E9079.htm")
 
 # Let the page load
-time.sleep(60)
+time.sleep(70)
 
 # soup = BeautifulSoup(html, 'html.parser')
 
