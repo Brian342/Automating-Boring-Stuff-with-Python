@@ -44,6 +44,8 @@ for page in range(num_pages):
         time_tag = items.find('span', class_="timestamp_reviewDate__dsF9n")
         time = time_tag.get_text(strip=True) if time_tag else 'N/A'
 
+        #
+
         # extracting the title
         title_tag = items.select_one('[data-test="review-avatar-label"]')
         title = title_tag.get_text(strip=True) if title_tag else 'N/A'
