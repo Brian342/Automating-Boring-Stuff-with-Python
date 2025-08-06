@@ -25,7 +25,7 @@ titles, ratings, Pros, cons, Feedback = [], [], [], [], []
 num_pages = 4515
 
 for page in range(num_pages):
-    time.sleep(20)
+    time.sleep(10)
     html = driver.page_source
     soup = BeautifulSoup(html, 'html.parser')
     reviews = soup.find('div', id='ReviewsFeed')
