@@ -53,7 +53,7 @@ for page in range(num_pages):
 
         # location
         location_tag = items.find('div',
-                                  class_="text-with-icon_LabelContainer__xbtB8 text-with-icon_disableTruncationMobile__o_kha")
+                                  class_="text-with-icon_TextWithIcon__5ZZqT")
         location = location_tag.get_text(strip=True) if location_tag else 'N/A'
 
         # extracting the title
