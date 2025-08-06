@@ -83,7 +83,7 @@ for page in range(num_pages):
             EC.element_to_be_clickable((By.CSS_SELECTOR, 'button[data-test="next-page"]'))
         )
 
-        # 👇 Scroll it into view to avoid interception
+        # Scroll it into view to avoid interception
         driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", next_button)
         time.sleep(5)
 
