@@ -77,8 +77,10 @@ for page in range(num_pages):
 
         titles.append(title)
         ratings.append(rating)
+        timeStamp.append(time)
         Pros.append(ProsBody)
         cons.append(ConsBody)
+
         # Feedback.append(feedbackBody)
 
     try:
