@@ -93,6 +93,12 @@ for page in range(num_pages):
         print("Failed to find or click the next page button:", e)
 
 driver.quit()
+with open('SafaricomReviews.csv', 'w', newline='', encoding='utf-8') as csvFile:
+    writer = csv.writer(csvFile)
+    writer.writerow(['Job Title', 'Job Ratings', 'Pros', 'Cons'])
+    for i in range(len(titles)):
+        writer.writerow([titles[i], ratings[i], Pros[i], cons[i]])
+
 print(f"\nTotal Reviews Scraped: {len(titles)}")
 print(f"Job Title: {titles}")
 print()
