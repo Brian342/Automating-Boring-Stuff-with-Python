@@ -1,4 +1,6 @@
 # importing modules
+import csv
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
@@ -27,6 +29,10 @@ for page in range(num_pages):
     time.sleep(20)
     html = driver.page_source
     soup = BeautifulSoup(html, 'html.parser')
+    with open('SafaricomReviews.csv', 'w', newline='', encoding='utf-8') as csvFile:
+        writer = csv.writer(csvFile)
+        writer.writerow(['Job Title', 'Job Ratings', 'Pros', 'Cons'])
+
     reviews = soup.find('div', id='ReviewsFeed')
     if not reviews:
         print('No reviews found on this page .... Skipping!')
