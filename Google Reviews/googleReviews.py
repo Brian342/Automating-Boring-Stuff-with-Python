@@ -39,7 +39,7 @@ with open('googleReviews.csv', 'w', newline='', encoding='utf-8') as csvFile:
             continue
         review_items = reviews.select('li')
         title = soup.title.string
-    # print(title)
+        # print(title)
 
         for items in review_items:
             rating_tag = items.select_one('[data-test="review-rating-label"]')
@@ -76,19 +76,19 @@ with open('googleReviews.csv', 'w', newline='', encoding='utf-8') as csvFile:
             cons_tag = items.select_one('[data-test="review-text-CONS"]')
             ConsBody = cons_tag.get_text(strip=True) if cons_tag else 'N/A'
 
-        # try:
-        #     dropDown_button = items.find_element(By.CSS_SELECTOR, '.expand-button_ExpandButton__Wevvg')
-        #
-        #     # Scroll it into view to avoid interception
-        #     driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", dropDown_button)
-        #     time.sleep(5)
-        #     dropDown_button.click()
-        #     print("Clicked the drop down button")
-        # except Exception as e:
-        #     print("Failed to find or click the drop down button:", e)
-        #
-        # feedback_tag = items.select_one('[data-test="review-text-FEEDBACK"]')
-        # feedbackBody = feedback_tag.get_text(strip=True) if feedback_tag else 'N/A'
+            # try:
+            #     dropDown_button = items.find_element(By.CSS_SELECTOR, '.expand-button_ExpandButton__Wevvg')
+            #
+            #     # Scroll it into view to avoid interception
+            #     driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", dropDown_button)
+            #     time.sleep(5)
+            #     dropDown_button.click()
+            #     print("Clicked the drop down button")
+            # except Exception as e:
+            #     print("Failed to find or click the drop down button:", e)
+            #
+            # feedback_tag = items.select_one('[data-test="review-text-FEEDBACK"]')
+            # feedbackBody = feedback_tag.get_text(strip=True) if feedback_tag else 'N/A'
 
             titles.append(title)
             ratings.append(rating)
