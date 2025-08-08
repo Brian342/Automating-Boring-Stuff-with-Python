@@ -20,7 +20,7 @@ time.sleep(70)
 
 # soup = BeautifulSoup(html, 'html.parser')
 
-titles, ratings, timeStamp, JobStatus, locationStatus, Pros, cons = [], [], [], [], [], [], []
+# titles, ratings, timeStamp, JobStatus, locationStatus, Pros, cons = [], [], [], [], [], [], []
 
 # num_pages = 4515
 num_pages = 4
@@ -51,7 +51,7 @@ with open('googleReviews.csv', 'w', newline='', encoding='utf-8') as csvFile:
 
             # job status
             job_tag = items.find('div',
-                                class_="text-with-icon_LabelContainer__xbtB8 text-with-icon_disableTruncationMobile__o_kha")
+                                 class_="text-with-icon_LabelContainer__xbtB8 text-with-icon_disableTruncationMobile__o_kha")
             job = job_tag.get_text(strip=True) if job_tag else 'N/A'
 
             # location
@@ -89,18 +89,18 @@ with open('googleReviews.csv', 'w', newline='', encoding='utf-8') as csvFile:
             #
             # feedback_tag = items.select_one('[data-test="review-text-FEEDBACK"]')
             # feedbackBody = feedback_tag.get_text(strip=True) if feedback_tag else 'N/A'
-
-            titles.append(title)
-            ratings.append(rating)
-            timeStamp.append(PostTime)
-            JobStatus.append(job)
-            # locationStatus.append(location)
-            Pros.append(ProsBody)
-            cons.append(ConsBody)
+            #
+            # titles.append(title)
+            # ratings.append(rating)
+            # timeStamp.append(PostTime)
+            # JobStatus.append(job)
+            # # locationStatus.append(location)
+            # Pros.append(ProsBody)
+            # cons.append(ConsBody)
 
             # Feedback.append(feedbackBody)
-            writer.writerow([titles, ratings, timeStamp,JobStatus, Pros, cons])
-            print(f"wrote review: {titles} - {ratings} - {timeStamp} - {JobStatus} - {Pros} - {cons}")
+            writer.writerow([titles, ratings, timeStamp, JobStatus, Pros, cons])
+            print(f"wrote review")
 
         try:
             next_button = WebDriverWait(driver, 10).until(
