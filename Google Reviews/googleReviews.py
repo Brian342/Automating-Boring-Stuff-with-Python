@@ -99,7 +99,7 @@ with open('googleReviews.csv', 'w', newline='', encoding='utf-8') as csvFile:
             # cons.append(ConsBody)
 
             # Feedback.append(feedbackBody)
-            writer.writerow([titles, ratings, timeStamp, JobStatus, Pros, cons])
+            writer.writerow([title, rating, PostTime, job, ProsBody, ConsBody])
             print(f"wrote review")
 
         try:
@@ -125,16 +125,16 @@ driver.quit()
 #         writer.writerow([titles[i], ratings[i], timeStamp[i],
 #                          JobStatus[i], Pros[i], cons[i]])
 
-print(f"\nTotal Reviews Scraped: {len(titles)}")
-print(f"Job Title: {titles}")
+print(f"\nTotal Reviews Scraped: {len(title)}")
+print(f"Job Title: {title}")
 print()
-print(f"Job Ratings: {ratings}")
+print(f"Job Ratings: {rating}")
 print()
-print(f"TimeStamp: {timeStamp}")
+print(f"TimeStamp: {PostTime}")
 print()
-print(f"JobStatus: {JobStatus}")
+print(f"JobStatus: {job}")
 print()
 # print(f"CurrentLocation: {locationStatus}")
-print(f"Pros: {Pros}")
+print(f"Pros: {ProsBody}")
 print()
-print(f"Cons: {cons}")
+print(f"Cons: {ConsBody}")
