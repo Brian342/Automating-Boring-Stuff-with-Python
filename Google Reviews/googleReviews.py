@@ -23,7 +23,7 @@ time.sleep(70)
 # titles, ratings, timeStamp, JobStatus, locationStatus, Pros, cons = [], [], [], [], [], [], []
 
 # num_pages = 4515
-num_pages = 4
+num_pages = 4517
 
 with open('googleReviews.csv', 'w', newline='', encoding='utf-8') as csvFile:
     writer = csv.writer(csvFile)
