@@ -23,7 +23,8 @@ time.sleep(70)
 titles, ratings, timeStamp, JobStatus, locationStatus, Pros, cons = [], [], [], [], [], [], []
 
 # num_pages = 4515
-num_pages = 4515
+num_pages = 4
+
 with open('googleReviews.csv', 'w', newline='', encoding='utf-8') as csvFile:
     writer = csv.writer(csvFile)
     writer.writerow(['Job Title', 'Job Ratings', 'time', 'JobStatus', 'Pros', 'Cons'])
@@ -101,19 +102,19 @@ with open('googleReviews.csv', 'w', newline='', encoding='utf-8') as csvFile:
             writer.writerow([titles, ratings, timeStamp,JobStatus, Pros, cons])
             print(f"wrote review: {titles} - {ratings} - {timeStamp} - {JobStatus} - {Pros} - {cons}")
 
-    try:
-        next_button = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.CSS_SELECTOR, 'button[data-test="next-page"]'))
-        )
+        try:
+            next_button = WebDriverWait(driver, 10).until(
+                EC.element_to_be_clickable((By.CSS_SELECTOR, 'button[data-test="next-page"]'))
+            )
 
-        # Scroll it into view to avoid interception
-        driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", next_button)
-        time.sleep(5)
+            # Scroll it into view to avoid interception
+            driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", next_button)
+            time.sleep(5)
 
-        next_button.click()
-        print("Clicked the next page button")
-    except Exception as e:
-        print("Failed to find or click the next page button:", e)
+            next_button.click()
+            print("Clicked the next page button")
+        except Exception as e:
+            print("Failed to find or click the next page button:", e)
 
 driver.quit()
 
