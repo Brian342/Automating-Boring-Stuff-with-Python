@@ -71,29 +71,6 @@ with open('googleReviews.csv', 'w', newline='', encoding='utf-8') as csvFile:
             cons_tag = items.select_one('[data-test="review-text-CONS"]')
             ConsBody = cons_tag.get_text(strip=True) if cons_tag else 'N/A'
 
-            # try:
-            #     dropDown_button = items.find_element(By.CSS_SELECTOR, '.expand-button_ExpandButton__Wevvg')
-            #
-            #     # Scroll it into view to avoid interception
-            #     driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", dropDown_button)
-            #     time.sleep(5)
-            #     dropDown_button.click()
-            #     print("Clicked the drop down button")
-            # except Exception as e:
-            #     print("Failed to find or click the drop down button:", e)
-            #
-            # feedback_tag = items.select_one('[data-test="review-text-FEEDBACK"]')
-            # feedbackBody = feedback_tag.get_text(strip=True) if feedback_tag else 'N/A'
-            #
-            # titles.append(title)
-            # ratings.append(rating)
-            # timeStamp.append(PostTime)
-            # JobStatus.append(job)
-            # # locationStatus.append(location)
-            # Pros.append(ProsBody)
-            # cons.append(ConsBody)
-
-            # Feedback.append(feedbackBody)
             writer.writerow([title, rating, PostTime, job, ProsBody, ConsBody])
             print(f"wrote review")
 
@@ -113,13 +90,6 @@ with open('googleReviews.csv', 'w', newline='', encoding='utf-8') as csvFile:
 
 driver.quit()
 
-# with open('googleReviews.csv', 'w', newline='', encoding='utf-8') as csvFile:
-#     writer = csv.writer(csvFile)
-#     writer.writerow(['Job Title', 'Job Ratings', 'time', 'JobStatus', 'Pros', 'Cons'])
-#     for i in range(len(titles)):
-#         writer.writerow([titles[i], ratings[i], timeStamp[i],
-#                          JobStatus[i], Pros[i], cons[i]])
-
 print(f"\nTotal Reviews Scraped: {len(title)}")
 print(f"Job Title: {title}")
 print()
@@ -129,7 +99,6 @@ print(f"TimeStamp: {PostTime}")
 print()
 print(f"JobStatus: {job}")
 print()
-# print(f"CurrentLocation: {locationStatus}")
 print(f"Pros: {ProsBody}")
 print()
 print(f"Cons: {ConsBody}")
