@@ -21,7 +21,8 @@ time.sleep(60)
 # soup = BeautifulSoup(html, 'html.parser')
 
 
-num_pages = 141
+# num_pages = 141
+num_pages = 4
 
 with open('SafaricomReviews.csv', 'w', newline='', encoding='utf-8') as csvFile:
     writer = csv.writer(csvFile)
