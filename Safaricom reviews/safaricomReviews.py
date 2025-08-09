@@ -20,7 +20,6 @@ time.sleep(60)
 
 # soup = BeautifulSoup(html, 'html.parser')
 
-titles, ratings, Pros, cons, Feedback = [], [], [], [], []
 
 num_pages = 141
 
@@ -71,10 +70,6 @@ for page in range(num_pages):
         # feedback_tag = items.select_one('[data-test="review-text-FEEDBACK"]')
         # feedbackBody = feedback_tag.get_text(strip=True) if feedback_tag else 'N/A'
 
-        titles.append(title)
-        ratings.append(rating)
-        Pros.append(ProsBody)
-        cons.append(ConsBody)
         # Feedback.append(feedbackBody)
 
     try:
@@ -107,4 +102,3 @@ print()
 print(f"Pros: {Pros}")
 print()
 print(f"Cons: {cons}")
-
