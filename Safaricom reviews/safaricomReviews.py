@@ -21,15 +21,14 @@ time.sleep(60)
 # soup = BeautifulSoup(html, 'html.parser')
 
 
-# num_pages = 141
-num_pages = 4
+num_pages = 141
 
 with open('SafaricomReviews.csv', 'w', newline='', encoding='utf-8') as csvFile:
     writer = csv.writer(csvFile)
     writer.writerow(['Job Title', 'Job Ratings', 'time', 'JobStatus', 'Pros', 'Cons'])
 
     for page in range(num_pages):
-        time.sleep(20)
+        time.sleep(10)
         html = driver.page_source
         soup = BeautifulSoup(html, 'html.parser')
         reviews = soup.find('div', id='ReviewsFeed')
