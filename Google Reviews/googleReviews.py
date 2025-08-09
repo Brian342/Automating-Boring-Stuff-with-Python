@@ -54,7 +54,6 @@ with open('googleReviews.csv', 'w', newline='', encoding='utf-8') as csvFile:
                                  class_="text-with-icon_LabelContainer__xbtB8 text-with-icon_disableTruncationMobile__o_kha")
             job = job_tag.get_text(strip=True) if job_tag else 'N/A'
 
-
             # extracting the title
             title_tag = items.select_one('[data-test="review-avatar-label"]')
             title = title_tag.get_text(strip=True) if title_tag else 'N/A'
