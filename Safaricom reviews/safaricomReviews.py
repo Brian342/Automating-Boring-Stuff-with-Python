@@ -23,25 +23,35 @@ time.sleep(60)
 
 num_pages = 141
 
-for page in range(num_pages):
-    time.sleep(20)
-    html = driver.page_source
-    soup = BeautifulSoup(html, 'html.parser')
-    reviews = soup.find('div', id='ReviewsFeed')
-    if not reviews:
-        print('No reviews found on this page .... Skipping!')
-        continue
-    review_items = reviews.select('li')
-    title = soup.title.string
-    # print(title)
+with open('SafaricomReviews.csv', 'w', newline='', encoding='utf-8') as csvFile:
+    writer = csv.writer(csvFile)
+    writer.writerow(['Job Title', 'Job Ratings', 'time', 'JobStatus', 'Pros', 'Cons'])
 
-    for items in review_items:
-        rating_tag = items.select_one('[data-test="review-rating-label"]')
-        rating = rating_tag.get_text(strip=True) if rating_tag else 'N/A'
+    for page in range(num_pages):
+        time.sleep(20)
+        html = driver.page_source
+        soup = BeautifulSoup(html, 'html.parser')
+        reviews = soup.find('div', id='ReviewsFeed')
+        if not reviews:
+            print('No reviews found on this page .... Skipping!')
+            continue
+        review_items = reviews.select('li')
+        title = soup.title.string
 
-        # extracting the title
-        title_tag = items.select_one('[data-test="review-avatar-label"]')
-        title = title_tag.get_text(strip=True) if title_tag else 'N/A'
+        for items in review_items:
+            rating_tag = items.select_one('[data-test="review-rating-label"]')
+            rating = rating_tag.get_text(strip=True) if rating_tag else 'N/A'
+
+            time_tag = items.find('span', class_="timestamp_reviewDate__dsF9n")
+            PostTime = time_tag.get_text(strip=True) if time_tag else 'N/A'
+
+            job_tag = items.find('div',
+                                class_="text-with-icon_LabelContainer__xbtB8 text-with-icon_disableTruncationMobile__o_kha")
+            job = job_tag.get_text(strip=True) if job_tag else 'N/A'
+
+            # extracting the title
+            title_tag = items.select_one('[data-test="review-avatar-label"]')
+            title = title_tag.get_text(strip=True) if title_tag else 'N/A'
 
         # Description
         Pros_tag = items.select_one('[data-test="review-text-PROS"]')
@@ -88,9 +98,7 @@ for page in range(num_pages):
 
 driver.quit()
 
-with open('SafaricomReviews.csv', 'w', newline='', encoding='utf-8') as csvFile:
-    writer = csv.writer(csvFile)
-    writer.writerow(['Job Title', 'Job Ratings', 'Pros', 'Cons'])
+
     for i in range(len(titles)):
         writer.writerow([titles[i], ratings[i], Pros[i], cons[i]])
 
