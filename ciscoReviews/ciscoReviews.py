@@ -18,11 +18,6 @@ driver.get(
 # Let the page load
 time.sleep(70)
 
-# soup = BeautifulSoup(html, 'html.parser')
-
-# titles, ratings, timeStamp, JobStatus, locationStatus, Pros, cons = [], [], [], [], [], [], []
-
-# num_pages = 4515
 num_pages = 3253
 
 with open('ciscoReviews.csv', 'w', newline='', encoding='utf-8') as csvFile:
