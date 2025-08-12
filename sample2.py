@@ -13,7 +13,7 @@ import undetected_chromedriver as uc
 # CONFIG
 checkpoint_file = "checkpoint.json"
 csv_file = "ciscoReviews.csv"
-total_pages = 4
+total_pages = 10
 start_page = 1  # default if no checkpoint found
 # ------------------------------
 
