@@ -18,7 +18,8 @@ driver.get(
 # Let the page load
 time.sleep(70)
 
-num_pages = 3253
+# num_pages = 3253
+num_pages = 3254
 
 with open('ciscoReviews.csv', 'w', newline='', encoding='utf-8') as csvFile:
     writer = csv.writer(csvFile)
