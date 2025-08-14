@@ -20,21 +20,6 @@ time.sleep(70)
 
 # num_pages = 3253
 num_pages = 1000
-counter = 0
-while True:
-    try:
-        next_button = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.CSS_SELECTOR, 'button[data-test="next-page"]'))
-        )
-
-        # Scroll it into view to avoid interception
-        driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", next_button)
-        time.sleep(5)
-
-        next_button.click()
-        print("Clicked the next page button")
-    except Exception as e:
-        print("Failed to find or click the next page button:", e)
 
 with open('ciscoReviews.csv', 'a', newline='', encoding='utf-8') as csvFile:
     writer = csv.writer(csvFile)
