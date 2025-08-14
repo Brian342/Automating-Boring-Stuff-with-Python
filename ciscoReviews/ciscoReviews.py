@@ -1,5 +1,6 @@
 # importing modules
 import csv
+import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
@@ -7,6 +8,22 @@ from selenium.webdriver.support.wait import WebDriverWait
 from bs4 import BeautifulSoup
 import time
 import undetected_chromedriver as uc
+
+LastPageFile = "last_page.txt"
+csvFile = "ciscoReviews2.csv"
+
+
+def get_start_page():
+    if os.path.exists(LastPageFile):
+        with open(LastPageFile, "r") as f:
+            return int(f.read().strip())
+    return 1
+
+
+def save_last_page(page_number):
+    with open(LastPageFile, "w") as f:
+        f.write(str(page_number))
+
 
 options = uc.ChromeOptions()
 options.headless = False  # Set to True if you want to hide browser
