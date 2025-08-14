@@ -43,6 +43,7 @@ with open(Csv_File, 'a', newline='', encoding='utf-8') as csvFile:
     if not file_exists:
         writer.writerow(['Job Title', 'Job Ratings', 'time', 'JobStatus', 'Pros', 'Cons'])
 
+    current_page = start_page
     for page in range(num_pages):
         time.sleep(10)
         html = driver.page_source
