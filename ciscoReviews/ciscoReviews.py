@@ -10,7 +10,7 @@ import time
 import undetected_chromedriver as uc
 
 LastPageFile = "last_page.txt"
-csvFile = "ciscoReviews2.csv"
+Csv_File = "ciscoReviews.csv"
 
 
 def get_start_page():
@@ -32,13 +32,13 @@ driver = uc.Chrome(options=options)
 start_page = get_start_page()
 driver.get(
     "https://www.glassdoor.com/Reviews/Cisco-Reviews-E1425_P1001.htm?filter.iso3Language=eng")
-
 # Let the page load
 time.sleep(70)
 
 num_pages = 3253
 
-with open('ciscoReviews.csv', 'a', newline='', encoding='utf-8') as csvFile:
+file_exists = os.path.exists(Csv_File)
+with open(Csv_File, 'a', newline='', encoding='utf-8') as csvFile:
     writer = csv.writer(csvFile)
     writer.writerow(['Job Title', 'Job Ratings', 'time', 'JobStatus', 'Pros', 'Cons'])
 
