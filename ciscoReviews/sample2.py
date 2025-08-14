@@ -60,7 +60,7 @@ with open('cisco.csv', 'a', newline='', encoding='utf-8') as csvFile:
                 EC.element_to_be_clickable((By.CSS_SELECTOR, 'button[data-test="next-page"]'))
             )
             driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", next_button)
-            time.sleep(1)
+            time.sleep(5)
             next_button.click()
             current_page += 1
             print(f"➡️ Moving to page {current_page}")
