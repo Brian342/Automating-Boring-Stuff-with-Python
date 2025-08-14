@@ -1,115 +1,76 @@
-# importing modules
-import csv
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from bs4 import BeautifulSoup
-import time
-import undetected_chromedriver as uc
+import time, csv, undetected_chromedriver as uc
 
 options = uc.ChromeOptions()
-options.headless = False  # Set to True if you want to hide browser
-
+options.headless = False
 driver = uc.Chrome(options=options)
-driver.get(
-    "https://www.glassdoor.com/Reviews/Cisco-Reviews-E1425.htm")
+driver.get("https://www.glassdoor.com/Reviews/Cisco-Reviews-E1425.htm")
+time.sleep(5)
 
-# Let the page load
-time.sleep(70)
-
-# num_pages = 3253
-num_pages = 1000
-counter = 0
-while True:
+# Go to page 1000
+for i in range(999):
     try:
         next_button = WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable((By.CSS_SELECTOR, 'button[data-test="next-page"]'))
         )
-
-        # Scroll it into view to avoid interception
         driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", next_button)
-        time.sleep(5)
-
+        time.sleep(1)
         next_button.click()
-        print("Clicked the next page button")
+        print(f"Reached page {i + 2}")
+        time.sleep(3)
     except Exception as e:
-        print("Failed to find or click the next page button:", e)
+        print(f"Could not go to next page at step {i + 1}: {e}")
+        break
 
-    with open('ciscoReviews.csv', 'a', newline='', encoding='utf-8') as csvFile:
-        writer = csv.writer(csvFile)
-        writer.writerow(['Job Title', 'Job Ratings', 'time', 'JobStatus', 'Pros', 'Cons'])
+# Now scrape starting from page 1000
+with open('ciscoReviews.csv', 'a', newline='', encoding='utf-8') as csvFile:
+    writer = csv.writer(csvFile)
+    writer.writerow(['Job Title', 'Job Ratings', 'Time', 'JobStatus', 'Pros', 'Cons'])
 
-        for page in range(num_pages):
-            time.sleep(10)
-            html = driver.page_source
-            soup = BeautifulSoup(html, 'html.parser')
-            reviews = soup.find('div', id='ReviewsFeed')
-            if not reviews:
-                print('No reviews found on this page .... Skipping!')
-                continue
-            review_items = reviews.select('li')
-            title = soup.title.string
-        # print(title)
+    while True:
+        time.sleep(70)
+        soup = BeautifulSoup(driver.page_source, 'html.parser')
+        reviews = soup.find('div', id='ReviewsFeed')
+        if not reviews:
+            print('No reviews found on this page .... Skipping!')
+            break
 
-            for items in review_items:
-                rating_tag = items.select_one('[data-test="review-rating-label"]')
-                rating = rating_tag.get_text(strip=True) if rating_tag else 'N/A'
+        for items in reviews.select('li'):
+            rating_tag = items.select_one('[data-test="review-rating-label"]')
+            rating = rating_tag.get_text(strip=True) if rating_tag else 'N/A'
 
-                # getting the timestamp
-                time_tag = items.find('span', class_="timestamp_reviewDate__dsF9n")
-                PostTime = time_tag.get_text(strip=True) if time_tag else 'N/A'
+            time_tag = items.find('span', class_="timestamp_reviewDate__dsF9n")
+            PostTime = time_tag.get_text(strip=True) if time_tag else 'N/A'
 
-                # job status
-                job_tag = items.find('div',
-                                    class_="text-with-icon_LabelContainer__xbtB8 text-with-icon_disableTruncationMobile__o_kha")
-                job = job_tag.get_text(strip=True) if job_tag else 'N/A'
+            job_tag = items.find('div',
+                                 class_="text-with-icon_LabelContainer__xbtB8 text-with-icon_disableTruncationMobile__o_kha")
+            job = job_tag.get_text(strip=True) if job_tag else 'N/A'
 
-                # extracting the title
-                title_tag = items.select_one('[data-test="review-avatar-label"]')
-                title = title_tag.get_text(strip=True) if title_tag else 'N/A'
+            title_tag = items.select_one('[data-test="review-avatar-label"]')
+            job_title = title_tag.get_text(strip=True) if title_tag else 'N/A'
 
-                # Description
-                Pros_tag = items.select_one('[data-test="review-text-PROS"]')
-                ProsBody = Pros_tag.get_text(strip=True) if Pros_tag else 'N/A'
+            Pros_tag = items.select_one('[data-test="review-text-PROS"]')
+            ProsBody = Pros_tag.get_text(strip=True) if Pros_tag else 'N/A'
 
-                Pros_title = items.find('p', class_="review-text_textTitle__h8c3S review-text_green___30m9")
-                ProsHeader = Pros_title.get_text(strip=True) if Pros_title else 'N/A'
+            cons_tag = items.select_one('[data-test="review-text-CONS"]')
+            ConsBody = cons_tag.get_text(strip=True) if cons_tag else 'N/A'
 
-                cons_title = items.find('p', class_="review-text_textTitle__h8c3S  review-text_red__0dGPZ")
-                ConsHeader = cons_title.get_text(strip=True) if cons_title else 'N/A'
+            writer.writerow([job_title, rating, PostTime, job, ProsBody, ConsBody])
+            print(f"Wrote review for {job_title}")
 
-                cons_tag = items.select_one('[data-test="review-text-CONS"]')
-                ConsBody = cons_tag.get_text(strip=True) if cons_tag else 'N/A'
+        try:
+            next_button = WebDriverWait(driver, 10).until(
+                EC.element_to_be_clickable((By.CSS_SELECTOR, 'button[data-test="next-page"]'))
+            )
+            driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", next_button)
+            time.sleep(1)
+            next_button.click()
+        except Exception as e:
+            print("No more pages:", e)
+            break
 
-                writer.writerow([title, rating, PostTime, job, ProsBody, ConsBody])
-                print(f"wrote review")
-
-            try:
-                next_button = WebDriverWait(driver, 10).until(
-                    EC.element_to_be_clickable((By.CSS_SELECTOR, 'button[data-test="next-page"]'))
-                )
-
-                # Scroll it into view to avoid interception
-                driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", next_button)
-                time.sleep(5)
-
-                next_button.click()
-                print("Clicked the next page button")
-            except Exception as e:
-                print("Failed to find or click the next page button:", e)
-
-    driver.quit()
-
-    print(f"\nTotal Reviews Scraped: {len(title)}")
-    print(f"Job Title: {title}")
-    print()
-    print(f"Job Ratings: {rating}")
-    print()
-    print(f"TimeStamp: {PostTime}")
-    print()
-    print(f"JobStatus: {job}")
-    print()
-    print(f"Pros: {ProsBody}")
-    print()
-    print(f"Cons: {ConsBody}")
+driver.quit()
