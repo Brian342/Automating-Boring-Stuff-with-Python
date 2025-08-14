@@ -31,7 +31,7 @@ options.headless = False  # Set to True if you want to hide browser
 driver = uc.Chrome(options=options)
 start_page = get_start_page()
 driver.get(
-    "https://www.glassdoor.com/Reviews/Cisco-Reviews-E1425_P1001.htm?filter.iso3Language=eng")
+    f"https://www.glassdoor.com/Reviews/Cisco-Reviews-E1425_P{start_page}.htm")
 # Let the page load
 time.sleep(70)
 
