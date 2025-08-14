@@ -67,7 +67,7 @@ with open(Csv_File, 'a', newline='', encoding='utf-8') as csvFile:
             print('No reviews found on this page .... Skipping!')
             continue
         review_items = reviews.select('li')
-        # title = soup.title.string()
+        # title = soup.title.string
         # print(title)
 
         for items in review_items:
