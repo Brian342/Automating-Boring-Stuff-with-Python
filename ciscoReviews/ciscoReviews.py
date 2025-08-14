@@ -40,6 +40,7 @@ num_pages = 3253
 file_exists = os.path.exists(Csv_File)
 with open(Csv_File, 'a', newline='', encoding='utf-8') as csvFile:
     writer = csv.writer(csvFile)
+
     if not file_exists:
         writer.writerow(['Job Title', 'Job Ratings', 'time', 'JobStatus', 'Pros', 'Cons'])
 
