@@ -88,6 +88,7 @@ with open('googleReviews.csv', 'w', newline='', encoding='utf-8') as csvFile:
         except Exception as e:
             print("Failed to find or click the next page button:", e)
 
+
 driver.quit()
 
 print(f"\nTotal Reviews Scraped: {len(title)}")

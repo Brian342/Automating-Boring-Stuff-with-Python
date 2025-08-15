@@ -1,5 +1,6 @@
 # importing modules
 import csv
+import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
@@ -8,37 +9,65 @@ from bs4 import BeautifulSoup
 import time
 import undetected_chromedriver as uc
 
+LastPageFile = "last_page_MicroSoft.txt"
+Csv_File = "MicrosoftReviews.csv"
+
+
+def get_start_page():
+    if os.path.exists(LastPageFile):
+        with open(LastPageFile, "r") as f:
+            return int(f.read().strip())
+    return 1
+
+
+def save_last_page(page_number):
+    with open(LastPageFile, "w") as f:
+        f.write(str(page_number))
+
+
 options = uc.ChromeOptions()
 options.headless = False  # Set to True if you want to hide browser
 
 driver = uc.Chrome(options=options)
+start_page = get_start_page()
 driver.get(
-    "https://www.glassdoor.com/Reviews/Microsoft-Reviews-E1651.htm")
-
+    f"https://www.glassdoor.com/Reviews/Microsoft-Reviews-E1651_P{start_page}.htm?filter.iso3Language=eng")
 # Let the page load
 time.sleep(70)
 
-# soup = BeautifulSoup(html, 'html.parser')
+num_pages = 5089
 
-# titles, ratings, timeStamp, JobStatus, locationStatus, Pros, cons = [], [], [], [], [], [], []
-
-# num_pages = 4515
-num_pages = 4517
-
-with open('microsoftReviews.csv', 'w', newline='', encoding='utf-8') as csvFile:
+file_exists = os.path.exists(Csv_File)
+with open(Csv_File, 'a', newline='', encoding='utf-8') as csvFile:
     writer = csv.writer(csvFile)
-    writer.writerow(['Job Title', 'Job Ratings', 'time', 'JobStatus', 'Pros', 'Cons'])
 
+    if not file_exists:
+        writer.writerow(['Job Title', 'Job Ratings', 'time', 'JobStatus', 'Pros', 'Cons'])
+
+    total_reviews = 0
+    current_page = start_page
     for page in range(num_pages):
-        time.sleep(10)
-        html = driver.page_source
-        soup = BeautifulSoup(html, 'html.parser')
-        reviews = soup.find('div', id='ReviewsFeed')
+        attempts = 0
+        while attempts < 6:
+            save_last_page(current_page)
+            time.sleep(15)
+
+            html = driver.page_source
+            soup = BeautifulSoup(html, 'html.parser')
+            reviews = soup.find('div', id='ReviewsFeed')
+
+            if reviews:
+                break
+
+            print(f"No reviews found on page {current_page}, retrying...")
+            driver.refresh()
+            attempts += 1
+
         if not reviews:
             print('No reviews found on this page .... Skipping!')
             continue
         review_items = reviews.select('li')
-        title = soup.title.string
+        # title = soup.title.string
         # print(title)
 
         for items in review_items:
@@ -73,6 +102,7 @@ with open('microsoftReviews.csv', 'w', newline='', encoding='utf-8') as csvFile:
 
             writer.writerow([title, rating, PostTime, job, ProsBody, ConsBody])
             print(f"wrote review")
+            total_reviews += 1
 
         try:
             next_button = WebDriverWait(driver, 10).until(
@@ -84,13 +114,15 @@ with open('microsoftReviews.csv', 'w', newline='', encoding='utf-8') as csvFile:
             time.sleep(5)
 
             next_button.click()
+            current_page += 1
             print("Clicked the next page button")
         except Exception as e:
             print("Failed to find or click the next page button:", e)
 
+
 driver.quit()
 
-print(f"\nTotal Reviews Scraped: {len(title)}")
+print(f"\nTotal Reviews Scraped: {total_reviews}")
 print(f"Job Title: {title}")
 print()
 print(f"Job Ratings: {rating}")
