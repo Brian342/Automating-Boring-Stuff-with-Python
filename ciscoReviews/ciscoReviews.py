@@ -48,9 +48,9 @@ with open(Csv_File, 'a', newline='', encoding='utf-8') as csvFile:
     current_page = start_page
     for page in range(num_pages):
         attempts = 0
-        while attempts < 5:
+        while attempts < 6:
             save_last_page(current_page)
-            time.sleep(10)
+            time.sleep(15)
 
             html = driver.page_source
             soup = BeautifulSoup(html, 'html.parser')
@@ -118,7 +118,7 @@ with open(Csv_File, 'a', newline='', encoding='utf-8') as csvFile:
             print("Clicked the next page button")
         except Exception as e:
             print("Failed to find or click the next page button:", e)
-            break
+
 
 driver.quit()
 
