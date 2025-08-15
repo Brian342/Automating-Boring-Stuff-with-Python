@@ -35,7 +35,7 @@ driver.get(
 # Let the page load
 time.sleep(70)
 
-num_pages = 3253
+num_pages = 3256
 
 file_exists = os.path.exists(Csv_File)
 with open(Csv_File, 'a', newline='', encoding='utf-8') as csvFile:
@@ -118,6 +118,7 @@ with open(Csv_File, 'a', newline='', encoding='utf-8') as csvFile:
             print("Clicked the next page button")
         except Exception as e:
             print("Failed to find or click the next page button:", e)
+            break
 
 
 driver.quit()
