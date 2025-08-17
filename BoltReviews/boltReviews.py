@@ -31,8 +31,7 @@ options.headless = False  # Set to True if you want to hide browser
 driver = uc.Chrome(options=options)
 start_page = get_start_page()
 driver.get(
-    # f"https://www.glassdoor.com/Reviews/Microsoft-Reviews-E1651_P{start_page}.htm?filter.iso3Language=eng"
-    "https://www.glassdoor.com/Reviews/Bolt-Reviews-E1181527.htm")
+    f"https://www.glassdoor.com/Reviews/Bolt-Reviews-E1181527_P{start_page}.htm?filter.iso3Language=eng")
 # Let the page load
 time.sleep(70)
 
@@ -121,7 +120,7 @@ with open(Csv_File, 'a', newline='', encoding='utf-8') as csvFile:
         except Exception as e:
             print("Failed to find or click the next page button:", e)
             print(f"\nTotal Reviews Scraped: {total_reviews}")
-            break
+
 
 driver.quit()
 
