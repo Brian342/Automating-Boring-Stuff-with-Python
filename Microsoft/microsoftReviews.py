@@ -118,7 +118,7 @@ with open(Csv_File, 'a', newline='', encoding='utf-8') as csvFile:
             print("Clicked the next page button")
         except Exception as e:
             print("Failed to find or click the next page button:", e)
-
+            print(f"\nTotal Reviews Scraped: {total_reviews}")
 
 driver.quit()
 
