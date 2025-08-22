@@ -9,8 +9,8 @@ from bs4 import BeautifulSoup
 import time
 import undetected_chromedriver as uc
 
-LastPageFile = "last_page_KCB.txt"
-Csv_File = "KCBReviews.csv"
+LastPageFile = "last_page_Co-operative_bank.txt"
+Csv_File = "Co-operative_bankReviews.csv"
 
 
 def get_start_page():
