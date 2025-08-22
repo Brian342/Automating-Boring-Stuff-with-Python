@@ -31,8 +31,7 @@ options.headless = False  # Set to True if you want to hide browser
 driver = uc.Chrome(options=options)
 start_page = get_start_page()
 driver.get(
-    # f"https://www.glassdoor.com/Reviews/Kenya-Commercial-Bank-Reviews-E699089_P{start_page}.htm?filter.iso3Language=eng"
-    "https://www.glassdoor.com/Reviews/Co-operative-Bank-of-Kenya-Limited-Reviews-E757960.htm"
+    f"https://www.glassdoor.com/Reviews/Co-operative-Bank-of-Kenya-Limited-Reviews-E757960_P{start_page}.htm?filter.iso3Language=eng"
 )
 
 # Let the page load
