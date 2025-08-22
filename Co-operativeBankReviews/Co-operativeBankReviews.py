@@ -31,13 +31,14 @@ options.headless = False  # Set to True if you want to hide browser
 driver = uc.Chrome(options=options)
 start_page = get_start_page()
 driver.get(
-    f"https://www.glassdoor.com/Reviews/Kenya-Commercial-Bank-Reviews-E699089_P{start_page}.htm?filter.iso3Language=eng"
+    # f"https://www.glassdoor.com/Reviews/Kenya-Commercial-Bank-Reviews-E699089_P{start_page}.htm?filter.iso3Language=eng"
+    "https://www.glassdoor.com/Reviews/Co-operative-Bank-of-Kenya-Limited-Reviews-E757960.htm"
 )
 
 # Let the page load
 time.sleep(70)
 
-num_pages = 19
+num_pages = 30
 
 file_exists = os.path.exists(Csv_File)
 with open(Csv_File, 'a', newline='', encoding='utf-8') as csvFile:
@@ -121,6 +122,7 @@ with open(Csv_File, 'a', newline='', encoding='utf-8') as csvFile:
 
         except Exception as e:
             print("Failed to find or click the next page button:", e)
+            break
 
 
 driver.quit()
